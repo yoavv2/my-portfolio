@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Head = () => {
+const Meta = () => {
   return <div></div>;
 };
 
-export default Head;
+export default Meta;

@@ -10,34 +10,43 @@ type IndexProps = {
 };
 
 const blog = ({ posts }: IndexProps): JSX.Element => {
-  console.log('image : ', posts[0].image);
   return (
     <>
+      <h1 className='text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left'>
+        Hi,
+      </h1>
+      <h2 className='font-mono'> Welcome to my blog</h2>
+      <p className='font-mono'>
+        here you can find things that i want to keep for myself
+      </p>
       {posts.map((post) => (
-        <article key={post.slug} className='mt-12'>
+        <article key={post?.slug} className='mt-12'>
           <p className='mb-1 text-sm text-gray-500 dark:text-gray-400'>
             {format(parseISO(post?.date), 'MMMM dd, yyyy')}
           </p>
-          <h1 className='mb-2 text-xl'>
-            <Link as={`/posts/${post?.slug}`} href={`/posts/[slug]`}>
-              <a className='text-gray-900 dark:text-white dark:hover:text-blue-400'>
-                {post.title}
-              </a>
-            </Link>
-          </h1>
-          <p className='mb-3'>{post?.description}</p>
 
-          <img
-            src={`/images/${post?.image}`}
-            alt={post?.title}
-            width={400}
-            height={400}
-          />
-          <p>
-            <Link as={`/posts/${post?.slug}`} href={`/posts/[slug]`}>
-              <a>Read More</a>
-            </Link>
-          </p>
+          <Link as={`/posts/${post?.slug}`} href={`/posts/[slug]`}>
+            <a
+              className='text-gray-900 hover:cursor-pointer 
+            dark:text-white '
+            >
+              <h1 className='mb-2 text-xl font-[Inter]'>{post.title}</h1>
+
+              <p className='mb-3 leading-tight font-[Inter]'>
+                {post?.description}
+              </p>
+
+              <img
+                src={`/images/${post?.image}`}
+                alt={post?.title}
+                width={400}
+                height={400}
+              />
+              <p>
+                <a>Read More</a>
+              </p>
+            </a>
+          </Link>
         </article>
       ))}
     </>

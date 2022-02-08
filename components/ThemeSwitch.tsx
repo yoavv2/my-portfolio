@@ -11,10 +11,15 @@ const ThemeSwitch = (): JSX.Element => {
   }
   const isDark = theme === 'dark';
   const color = isDark ? '#fff' : '#000';
-  const maskColor = isDark ? '#000' : '#fff';
+  const maskColor = isDark ? '#fff' : '#fcfcfc';
 
   return (
-    <div>
+    <button
+      className='theme-button'
+      type='button'
+      aria-label='Toggle Dark Mode'
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+    >
       <div className='moon-or-sun' />
       <div className='moon-mask' />
       <style jsx>{`
@@ -87,7 +92,7 @@ const ThemeSwitch = (): JSX.Element => {
           transition: transform 0.45s ease;
         }
       `}</style>
-    </div>
+    </button>
   );
 };
 

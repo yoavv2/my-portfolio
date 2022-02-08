@@ -17,7 +17,6 @@ import { PostType } from '../../types/post';
 import { MetaProps } from '../../types/layout';
 
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
-import { log } from 'console';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -44,6 +43,12 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
   };
   return (
     <>
+      <h2 className='text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8'>
+        <Link href='/blog'>
+          <a className='hover:underline'>Back to posts</a>
+        </Link>
+        .
+      </h2>
       <article>
         <h1 className='mb-3 text-gray-900 dark:text-white'>
           {frontMatter.title}

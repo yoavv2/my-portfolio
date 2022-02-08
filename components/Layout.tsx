@@ -14,13 +14,13 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
       <header>
         <div className='max-w-5xl px-8 mx-auto'>
           <div className='flex items-center justify-between py-6'>
-            <Navigation />
             <ThemeSwitch />
+            <Navigation />
           </div>
         </div>
       </header>
       <main>
-        <div className='max-w-5xl px-8 py-4 mx-auto'>{children}</div>
+        <div className=' my-20 max-w-4xl px-8 py-4 mx-auto'>{children}</div>
       </main>
     </>
   );
