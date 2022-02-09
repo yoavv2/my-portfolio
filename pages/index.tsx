@@ -24,10 +24,10 @@ const Home = (): JSX.Element => {
       </p>
       <p className='font-mono'>
         - My Stack is Mostly MongoDB with Mongoose, Node with Express, React
-        with Next and GraphQL with Apollo Client.
+           with Next and GraphQL with Apollo Client.
       </p>
 
-      <p className='font-mono'>- B.Sc. in Mathematics and Computer Science.</p>
+      <p className='font-mono'> - B.Sc. in Mathematics and Computer Science.</p>
 
       <h2 className='font-mono my-10'>Here's how you can contact me!</h2>
 
@@ -58,12 +58,9 @@ const Home = (): JSX.Element => {
 
 export default Home;
 
-
 //!best practices
 //!Interested in the entire frontend spectrum and working on ambitious projects with positive people.
 //! The main area of my expertise is front-end development
-
-
 
 // . I am highly motivated, versatile and adaptive. Looking to learn and contribute to my environment
 // using both my personal and professional skills.

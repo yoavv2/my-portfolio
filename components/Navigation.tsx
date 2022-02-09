@@ -26,7 +26,7 @@ const Navigation = (): JSX.Element => {
           <span
             className={` ${
               pathname === '/blog'
-                ? 'opacity-50 translate-x-0 translate-y-0'
+                ? 'opacity-50 transform -translate-y-0 -translate-x-0'
                 : 'opacity-100'
             } 
                          absolute inset-0 w-full h-full transition 

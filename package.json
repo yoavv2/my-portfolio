@@ -18,7 +18,8 @@
     "react-dom": "17.0.2",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
-    "remark-code-titles": "^0.1.2"
+    "remark-code-titles": "^0.1.2",
+    "swr": "^1.2.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.1",
