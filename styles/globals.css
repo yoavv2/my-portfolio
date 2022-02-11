@@ -1,17 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @layer base {
+  html {
+    @apply font-mdm font-serif font-mono;
+  }
   h1 {
-    @apply mb-6 text-3xl font-semibold font-serif;
+    @apply mb-6 font-serif text-3xl font-semibold;
   }
   h2 {
-    @apply text-2xl font-semibold font-serif;
+    @apply font-serif text-2xl font-semibold;
   }
   p {
-    @apply my-4 text-lg font-serif;
+    @apply my-4 font-serif text-lg;
   }
   /* a {
     @apply text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300;
@@ -20,23 +22,26 @@
 
 @layer components {
   .hoverAnimation {
-    @apply hover:bg-[#f1a1a1] hover:bg-opacity-10 
-    cursor-pointer w-[52px] h-[52px] xl:w-auto xl:h-auto xl:py-3 xl:px-4;
+    @apply h-[52px] w-[52px] 
+    cursor-pointer hover:bg-[#f1a1a1] hover:bg-opacity-10 xl:h-auto xl:w-auto xl:py-3 xl:px-4;
   }
 
   .icon {
-    @apply cursor-pointer w-9 h-9 hover:bg-[#1d9bf0]
-    hover:bg-opacity-10 flex items-center justify-center rounded-full transition ease-out;
+    @apply flex h-9 w-9 cursor-pointer
+    items-center justify-center rounded-full transition ease-out hover:bg-[#1d9bf0] hover:bg-opacity-10;
+  }
+  .cardTag {
+    @apply mx-1 rounded-3xl border border-solid border-[#28242f] py-1 px-3 hover:bg-orange-400 hover:box-decoration-clone  hover:text-white;
   }
 }
 
 /* Post styles */
 .prose pre {
-  @apply bg-gray-50 border border-gray-200 dark:border-gray-700 dark:bg-gray-900;
+  @apply border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
 }
 
 .prose code {
-  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
+  @apply rounded-md border border-gray-100 bg-gray-100 px-1 py-0.5 text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200;
 }
 
 .prose img {
@@ -116,7 +121,7 @@ pre {
 
 /* Remark Styles */
 .remark-code-title {
-  @apply text-gray-800 dark:text-gray-200 px-5 py-3 border border-b-0 border-gray-200 dark:border-gray-700 rounded-t bg-gray-200 dark:bg-gray-800 text-sm font-mono font-bold;
+  @apply rounded-t border border-b-0 border-gray-200 bg-gray-200 px-5 py-3 font-mono text-sm font-bold text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200;
 }
 
 .remark-code-title + pre {
@@ -124,5 +129,5 @@ pre {
 }
 
 .mdx-marker {
-  @apply block -mx-4 px-4 bg-gray-100 dark:bg-gray-800 border-l-4 border-blue-500;
+  @apply -mx-4 block border-l-4 border-blue-500 bg-gray-100 px-4 dark:bg-gray-800;
 }

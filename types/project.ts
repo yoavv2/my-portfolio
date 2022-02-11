@@ -4,4 +4,7 @@ export type ProjectType = {
   html_url: string;
   description?: string;
   language: string;
+  languages: [string];
+  readme?: any;
+  created_at: string;
 };

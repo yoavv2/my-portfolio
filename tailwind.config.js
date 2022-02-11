@@ -66,6 +66,17 @@ module.exports = {
         },
       }),
     },
+    strokeWidth: {
+      2: '8px',
+    },
+    fontFamily: {
+      serif: ['Inter', 'san-serif'],
+      mono: ['Mono', 'monospace'],
+      mdm: ['DM Mono', 'monospace'],
+    },
+    boxShadow: {
+      '3xl': '-1rem 0 3rem #000',
+    },
   },
   variants: {
     typography: ['dark'],
