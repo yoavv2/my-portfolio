@@ -72,13 +72,14 @@ const Projects = () => {
           </div>
         ))}
       </section>
-      <div className='flex flex-col items-center'>
-        {/* find the repository readme by the name  */}
-        {/* {console.log(data?.repos?.find((repo: any) => repo.name == repoName))} */}
+      <div className=' flex justify-center'>
+        <article className='my-10  flex flex-col items-start border border-dashed border-b-slate-500 px-4 dark:border-white'>
+          {/* find the repository readme by the name  */}
 
-        <ReactMarkdown>
-          {data?.repos?.find((repo: any) => repo.name == repoName)?.readme}
-        </ReactMarkdown>
+          <ReactMarkdown>
+            {data?.repos?.find((repo: any) => repo.name == repoName)?.readme}
+          </ReactMarkdown>
+        </article>
       </div>
     </>
   );

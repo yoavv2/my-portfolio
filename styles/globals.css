@@ -19,11 +19,11 @@
     @apply text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300;
   } */
 }
+/*  <p className='text-md bg-gradient-to-r bg-clip-text fill-transparent font-mono  hover:from-orange-400 hover:to-red-700 hover:text-transparent'> */
 
 @layer components {
   .hoverAnimation {
-    @apply h-[52px] w-[52px] 
-    cursor-pointer hover:bg-[#f1a1a1] hover:bg-opacity-10 xl:h-auto xl:w-auto xl:py-3 xl:px-4;
+    @apply bg-gradient-to-r bg-clip-text fill-transparent hover:from-orange-400 hover:to-red-700 hover:text-transparent;
   }
 
   .icon {

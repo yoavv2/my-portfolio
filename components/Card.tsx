@@ -13,19 +13,21 @@ const Card = ({
     <>
       <article
         className='min-w-32 shadow-3xl hover:divide-x84 relative clear-both flex h-[450px] w-96
-      flex-col rounded-3xl bg-[#17141d] p-6 transition-transform 
-       hover:-translate-y-5 focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 '
+      cursor-pointer flex-col rounded-3xl p-6 transition-transform 
+       hover:-translate-y-5 focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-[#17141d]'
         onClick={() => setRepoName(name)}
       >
         <header className='mb-auto flex-grow'>
           <p className='text-sm text-[#7a7abc]'>
             {format(parseISO(created_at), 'MMMM dd, yyyy')}
           </p>
-          <h2 className='my-1 ml-auto bg-clip-text fill-transparent font-mono text-lg shadow-none hover:text-orange-400'>
+          <h2 className='font-mdm my-1 ml-auto bg-gradient-to-r bg-clip-text fill-transparent text-xl  hover:from-orange-400 hover:to-red-700 hover:text-transparent'>
             {name.split('-').join(' ')}
           </h2>
-          <p className='text-md font-mono'>{description}</p>
-          <p className='font-mono text-sm'> language: {language}</p>
+          <p className='text-md bg-gradient-to-r bg-clip-text fill-transparent font-mono  hover:from-orange-400 hover:to-red-700 hover:text-transparent'>
+            {description}
+          </p>
+          {/* <p className='font-mono text-sm'> language: {language}</p> */}
         </header>
 
         <div className='relative flex h-20  items-center '>
@@ -47,22 +49,13 @@ const Card = ({
             </svg>
           </a>
 
-          <div className=' font-mdm  ml-3 mb-3 '>
+          <div className=' font-mdm  ml-3 mb-3 bg-gradient-to-r bg-clip-text fill-transparent   hover:from-orange-400 hover:to-red-700 hover:text-transparent '>
             <div className=' font-extrabold text-[#7a7a8c]'>Author</div>
             Yoav Hevroni
           </div>
         </div>
 
-        <div className='text-md mx-4 mt-4  px-0 pt-2  pb-4 font-bold uppercase leading-4 '>
-          {/* <a className='cardTag' href='#'>
-            html
-          </a>
-          <a className='cardTag' href='#'>
-            css
-          </a>
-          <a className='cardTag' href='#'>
-            web-dev
-          </a> */}
+        <div className='text-md mx-4 mt-4  flex flex-wrap  px-0 pt-2 pb-4 font-bold uppercase leading-4 '>
           {Object.keys(languages).map((lang: string) => (
             <a
               className='cardTag'

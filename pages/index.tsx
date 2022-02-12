@@ -3,30 +3,39 @@ import Link from 'next/link';
 const Home = (): JSX.Element => {
   return (
     <>
-      <h1 className='font-mono text-4xl'>Hi there! My name is Yoav Hevroni</h1>
-      <h1 className='font-mono text-3xl'>
+      <h1 className='hoverAnimation font-mono text-4xl'>
+        Hi there! My name is Yoav Hevroni
+      </h1>
+      <h1 className='hoverAnimation font-mono text-3xl'>
         I’m a Full-Stack / Front-End Developer.
       </h1>
 
-      <p className='mt-20 font-mono'>
+      <p className='hoverAnimation mt-20 font-mono'>
         i'm Very comfortable working with JavaScript, HTML and CSS.
       </p>
-      <p className='font-mono'>
+      <p className='hoverAnimation font-mono'>
         Building and maintaining web applications and dashboards using React or
         NextJS.
       </p>
-      <p className='font-mono'>
+      <p className='hoverAnimation font-mono'>
         Looking to grow as a front-end/ back-end developer in a company
       </p>
-      <p className='font-mono'>that puts UI/UX at the top of the list.</p>
-      <p className='font-mono'>
+      <p className='hoverAnimation font-mono'>
+        that puts UI/UX at the top of the list.
+      </p>
+      <p className='hoverAnimation font-mono'>
         - My Stack is Mostly MongoDB with Mongoose, Node with Express, React
         with Next and GraphQL with Apollo Client.
       </p>
 
-      <p className='font-mono'> - B.Sc. in Mathematics and Computer Science.</p>
+      <p className='hoverAnimation font-mono'>
+        {' '}
+        - B.Sc. in Mathematics and Computer Science.
+      </p>
 
-      <h2 className='my-10 font-mono'>Here's how you can contact me!</h2>
+      <h2 className='hoverAnimation my-10 font-mono'>
+        Here's how you can contact me!
+      </h2>
 
       <Link href='https://www.linkedin.com/in/yoavhevroni/'>
         <a

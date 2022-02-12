@@ -11,8 +11,8 @@ const Navigation = (): JSX.Element => {
         <a
           className={` font-semibold ${
             pathname === '/'
-              ? 'font-extrabold text-stone-900  dark:text-orange-300'
-              : 'text-gray-900 dark:text-white'
+              ? 'bg-gradient-to-r from-orange-400  to-red-700 bg-clip-text fill-transparent  font-extrabold text-stone-900 text-transparent'
+              : 'text-gray-900 dark:text-white '
           } py-4 pr-6 `}
         >
           Home
@@ -24,15 +24,17 @@ const Navigation = (): JSX.Element => {
           `}
         >
           <span
-            className={` ${
+            className={`
+             absolute inset-0 h-full w-full
+              -translate-x-2 -translate-y-2 transform bg-gradient-to-br from-red-300 to-amber-500 transition duration-300 ease-out dark:from-orange-400  dark:to-red-700 
+                          
+            ${
               pathname === '/blog'
-                ? 'translate-y-0 -translate-x-0 transform opacity-50'
+                ? 'translate-x-0 translate-y-0 opacity-50'
                 : 'opacity-100'
             } 
-                         absolute inset-0 h-full w-full -translate-x-2 
-                        -translate-y-2 transform bg-red-300 transition duration-300 
-                         ease-out dark:bg-orange-300 
-                         
+
+                       
          `}
           ></span>
           <span className='absolute inset-0 h-full w-full border-4 border-black dark:border-white'></span>
@@ -43,7 +45,7 @@ const Navigation = (): JSX.Element => {
         <a
           className={` font-semibold  ${
             pathname === '/projects'
-              ? 'font-extrabold text-stone-900  dark:text-orange-300'
+              ? 'bg-gradient-to-r from-orange-400  to-red-700 bg-clip-text fill-transparent  font-extrabold text-stone-900 text-transparent'
               : 'text-gray-900 dark:text-white'
           } px-6 py-4`}
         >
