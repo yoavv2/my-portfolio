@@ -1,8 +1,4 @@
 import Link from 'next/link';
-import Layout from '../components/Layout';
-// import Layout from '../components/Layout';
-import Image from 'next/image';
-import Card from '../components/Card';
 
 const Home = (): JSX.Element => {
   return (
@@ -21,8 +17,8 @@ const Home = (): JSX.Element => {
       </p>
       <p className='font-mono'>
         Looking to grow as a front-end/ back-end developer in a company
-        <p className='font-mono'>that puts UI/UX at the top of the list.</p>
       </p>
+      <p className='font-mono'>that puts UI/UX at the top of the list.</p>
       <p className='font-mono'>
         - My Stack is Mostly MongoDB with Mongoose, Node with Express, React
         with Next and GraphQL with Apollo Client.

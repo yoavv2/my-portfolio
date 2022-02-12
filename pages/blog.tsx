@@ -12,7 +12,7 @@ type IndexProps = {
 const blog = ({ posts }: IndexProps): JSX.Element => {
   return (
     <>
-      <h1 className='mb-12 text-center font-serif text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
+      <h1 className='mb-12 text-center font-mono text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
         Hi,
       </h1>
       <h2 className='font-mono'> Welcome to my blog</h2>
@@ -40,9 +40,9 @@ const blog = ({ posts }: IndexProps): JSX.Element => {
                 width={400}
                 height={400}
               />
-              <p>
-                <a>Read More</a>
-              </p>
+              <h2 className='mb-20 mt-8 font-mono text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
+                <a className='hover:underline'>Read more</a>.
+              </h2>
             </a>
           </Link>
         </article>
