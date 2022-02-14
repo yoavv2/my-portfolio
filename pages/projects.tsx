@@ -5,6 +5,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { ProjectType } from '../types/project';
 import Card from '../components/Card';
 import { useState } from 'react';
+import Layout from '../components/Layout';
 
 export async function fetcher<JSON = any>(
   input: RequestInfo,
@@ -46,10 +47,10 @@ const Projects = () => {
     );
   console.log(data);
 
-  data.repos.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
+  data?.repos?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
 
   return (
-    <>
+    <Layout size='max-w-screen-xl'>
       <section className='flex  overflow-x-scroll p-12'>
         {data?.repos.map((project: ProjectType) => (
           <div key={project.name}>
@@ -73,7 +74,7 @@ const Projects = () => {
         ))}
       </section>
       <div className=' flex justify-center'>
-        <article className='my-10  flex flex-col items-start border border-dashed border-b-slate-500 px-4 dark:border-white'>
+        <article className='my-10 flex  flex-col items-start border border-dashed border-b-slate-500 bg-neutral-300  px-4 dark:border-white dark:bg-neutral-700'>
           {/* find the repository readme by the name  */}
 
           <ReactMarkdown>
@@ -81,7 +82,7 @@ const Projects = () => {
           </ReactMarkdown>
         </article>
       </div>
-    </>
+    </Layout>
   );
 };
 

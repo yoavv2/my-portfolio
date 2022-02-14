@@ -5,9 +5,14 @@ import { MetaProps } from '../types/layout';
 type LayoutProps = {
   children: React.ReactNode;
   customMeta?: MetaProps;
+  size?: string;
 };
 
-const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
+const Layout = ({
+  children,
+  customMeta,
+  size = 'max-w-6xl',
+}: LayoutProps): JSX.Element => {
   return (
     <>
       <header>
@@ -19,7 +24,7 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
         </div>
       </header>
       <main>
-        <div className='my-20 mx-auto max-w-6xl px-8 py-4'>{children}</div>
+        <div className={`  my-20 mx-auto  px-8 py-4 ${size} `}>{children}</div>
       </main>
     </>
   );

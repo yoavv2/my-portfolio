@@ -1,6 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
 
@@ -9,13 +10,13 @@ type IndexProps = {
 };
 
 const blog = ({ posts }: IndexProps): JSX.Element => {
-  posts.sort((a, b) => {
+  posts?.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
   return (
-    <>
-      <h1 className='hoverAnimation mb-12 text-center font-mono text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
+    <Layout size='max-w-5xl'>
+      <h1 className=' hoverAnimation mb-12 text-center font-mono text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
         Hi,
       </h1>
       <h2 className='hoverAnimation font-mono'> Welcome to my blog</h2>
@@ -54,7 +55,7 @@ const blog = ({ posts }: IndexProps): JSX.Element => {
           </Link>
         </article>
       ))}
-    </>
+    </Layout>
   );
 };
 

@@ -1,5 +1,6 @@
 import { ProjectType } from '../types/project';
 import { format, parseISO } from 'date-fns';
+import Link from 'next/link';
 const Card = ({
   name,
   html_url,
@@ -27,8 +28,17 @@ const Card = ({
           <p className='text-md bg-gradient-to-r bg-clip-text fill-transparent font-mono  hover:from-orange-400 hover:to-red-700 hover:text-transparent'>
             {description}
           </p>
-          {/* <p className='font-mono text-sm'> language: {language}</p> */}
         </header>
+        <Link href={html_url}>
+          <a
+            target='_blank'
+            className='cardTag ml-4 flex w-1/2 items-center justify-center bg-gradient-to-r bg-clip-text fill-transparent font-mono text-xl 
+             hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline'
+          >
+            {' '}
+            VIEW CODE
+          </a>
+        </Link>
 
         <div className='relative flex h-20  items-center '>
           <a

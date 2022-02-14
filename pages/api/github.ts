@@ -1,6 +1,6 @@
 import { ProjectType } from '../../types/project';
 
-export default async (req: any, res: ProjectType) => {
+export default async (req: any, res: Response) => {
   const reposURL = 'https://api.github.com/users/yoavv2/repos';
 
   const readmeURL = (repoName: string, repoBranch: string): string =>
@@ -9,42 +9,48 @@ export default async (req: any, res: ProjectType) => {
   const languagesURL = (repoName: string): string =>
     `https://api.github.com/repos/yoavv2/${repoName}/languages`;
 
-  const response = await fetch(reposURL, {
-    headers: {
-      Authorization: `token ${process.env.GITHUB_TOKEN}`,
-    },
-  });
-  const jsonData = await response.json();
-
-  const promises = jsonData?.map(async (repo: any) => {
-    const readmeResponse = await fetch(
-      readmeURL(repo.name, repo.default_branch),
-      {
-        headers: {
-          Authorization: `token ${process.env.GITHUB_TOKEN}`,
-        },
-      }
-    );
-
-    const languagesResponse = await fetch(`${languagesURL(repo.name)}`, {
+  try {
+    const response = await fetch(reposURL, {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
     });
 
-    const languagesJson = await languagesResponse.json();
+    const jsonData = await response.json();
 
-    const readme = await readmeResponse.text();
+    const promises = jsonData?.map(async (repo: any) => {
+      const readmeResponse = await fetch(
+        readmeURL(repo.name, repo.default_branch),
+        {
+          headers: {
+            Authorization: `token ${process.env.GITHUB_TOKEN}`,
+          },
+        }
+      );
 
-    repo.readme = readme;
-    repo.languages = languagesJson;
+      const languagesResponse = await fetch(`${languagesURL(repo.name)}`, {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        },
+      });
 
-    return repo;
-  });
+      const languagesJson = await languagesResponse.json();
 
-  const allRepos = await Promise.all(promises);
+      const readme = await readmeResponse.text();
 
-  res.status(200).json({
-    repos: allRepos,
-  });
+      repo.readme = readme;
+      repo.languages = languagesJson;
+
+      return repo;
+    });
+    const allRepos = await Promise.all(promises);
+
+    res.status(200).json({
+      repos: allRepos,
+    });
+  } catch (e) {
+    res.status(500).json({
+      error: e,
+    });
+  }
 };
