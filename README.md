@@ -13,6 +13,7 @@ I chose **TypeScript** mainly because i wanted to learn it.
 
 The blog is built with **MDX**, a fancier form of Markdown that allows me to insert React components.
 
+
  <!-- Rather of being kept in a CMS, the posts are checked into the Git repository. -->
 
 For Styling i chose **TailwindCSS** because its easy to use.
