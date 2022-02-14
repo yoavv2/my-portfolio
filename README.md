@@ -1,34 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Project Purpuse and Goals
 
-First, run the development server:
+This Project included 3 Pages, Home Page where i intrduce myself,
+blog Page where ill be posting things that i learnd and i want to share,
+and Projects Page Where im showing What i`v been working on
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# The Stack and Explanation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Nextjs made the most sense for the web application because its Static site Generated(SSG) and Server Side Renderd(SSR)
+apps, Dinamic Routes, Next also gave me the abuilty to use both client and server in the same application.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<!-- I chose TypeScript mainly because i wanted to learn it,   -->
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The blog is built with MDX, a fancier form of Markdown that allows me to insert React components.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+ <!-- Rather of being kept in a CMS, the posts are checked into the Git repository. -->
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For Styling i chose tailwindcss because its easy to use.
