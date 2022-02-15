@@ -1,14 +1,18 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+
 const ThemeSwitch = (): JSX.Element => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   // After mounting, we have access to the theme
+
   useEffect(() => setMounted(true), []);
+
   if (!mounted) {
     return null;
   }
+
   const isDark = theme === 'dark';
   const color = isDark ? '#fff' : '#000';
   const maskColor = isDark ? '#fff' : '#fcfcfc';
