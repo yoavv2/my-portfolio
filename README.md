@@ -6,7 +6,7 @@ This Project included 3 Pages:
 
 **Blog Page** where I'll be posting things that I learned and I want to share.
 
-**Projects Page** where I'm showing what I’ve been working on.
+**Projects Page** where I'm showing what I’ve been working on using github api.
 
 # The Stack and Explanation
 
