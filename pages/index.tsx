@@ -1,3 +1,4 @@
+// import Link from 'next/link';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 
@@ -8,7 +9,7 @@ const Home = (): JSX.Element => {
         Hi there! My name is Yoav Hevroni
       </h1>
       <h1 className='hoverAnimation font-mono text-3xl'>
-        I’m a Full-Stack / Front-End Developer.
+        I’m a Front-End Developer.
       </h1>
 
       <p className='hoverAnimation mt-20 font-mono'>
@@ -19,7 +20,7 @@ const Home = (): JSX.Element => {
         NextJS.
       </p>
       <p className='hoverAnimation font-mono'>
-        Looking to grow as a front-end/ back-end developer in a company
+        Looking to grow as a front-end developer in a company
       </p>
       <p className='hoverAnimation font-mono'>
         that puts UI/UX at the top of the list.
@@ -66,16 +67,21 @@ const Home = (): JSX.Element => {
         </a>
       </Link>
 
-      {/* <Card/> */}
+      <Link href='mailto:yoavhevroni1@gmail.com'>
+        <a
+          target='_blank'
+          className='group relative my-10 ml-4  inline-flex items-center justify-start overflow-hidden rounded-full px-5 py-3 font-mono font-bold'
+        >
+          <span className='absolute left-0 top-0 h-32 w-32 translate-x-12 -translate-y-2 rotate-45 bg-gray-300 opacity-[3%] dark:bg-white'></span>
+          <span className='absolute top-0 left-0 -mt-1 h-48 w-48 -translate-x-56 -translate-y-24 rotate-45 bg-yellow-400 opacity-100 transition-all duration-500 ease-in-out group-hover:-translate-x-8 dark:bg-orange-300'></span>
+          <span className='relative w-full text-left text-teal-900 transition-colors duration-200 ease-in-out dark:text-white dark:group-hover:text-gray-900'>
+            email
+          </span>
+          <span className='absolute inset-0 rounded-full border-2 border-black dark:border-white'></span>
+        </a>
+      </Link>
     </Layout>
   );
 };
 
 export default Home;
-
-//!best practices
-//!Interested in the entire frontend spectrum and working on ambitious projects with positive people.
-//! The main area of my expertise is front-end development
-
-// . I am highly motivated, versatile and adaptive. Looking to learn and contribute to my environment
-// using both my personal and professional skills.
