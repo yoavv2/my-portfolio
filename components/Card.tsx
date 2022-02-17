@@ -30,7 +30,7 @@ const Card = ({
             {description}
           </p>
           {homepage && (
-            <Link href={`${homepage}`}>
+            <Link href={homepage}>
               <a
                 target='_blank'
                 className='cardTag ml-4 flex w-1/2 items-center justify-center bg-gradient-to-r bg-clip-text
