@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import NavLink from './NavLink';
 
 const Navigation = (): JSX.Element => {
   const router = useRouter();
   const { pathname } = router;
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  // hidden md:block
+
   return (
     <nav className=' flex flex-col items-center  sm:flex-row'>
       <Link href='/'>

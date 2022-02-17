@@ -20,7 +20,6 @@ const Projects = () => {
 
   useEffect(() => {
     window.addEventListener('resize', () => {
-      console.log('resize');
       setIsSmall(window.innerWidth < 640 ? true : false);
     });
   }, []);
@@ -59,7 +58,6 @@ const Projects = () => {
         <p>Loading...</p>
       </Layout>
     );
-  console.log(data);
 
   data?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
 
