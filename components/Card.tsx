@@ -37,7 +37,7 @@ const Card = ({
              fill-transparent font-mono text-sm 
              hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline'
               >
-                view project 
+                view project
               </a>
             </Link>
           )}

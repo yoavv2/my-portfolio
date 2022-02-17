@@ -16,15 +16,18 @@ const Layout = ({
   return (
     <>
       <header>
-        <div className='mx-auto max-w-6xl px-8'>
+        <div className='mx-auto max-w-6xl md:px-8 '>
           <div className='flex items-center justify-between py-6'>
             <ThemeSwitch />
             <Navigation />
+            {/* <Navbar /> */}
           </div>
         </div>
       </header>
       <main>
-        <div className={`  my-20 mx-auto  px-8 py-4 ${size} `}>{children}</div>
+        <div className={`  sm:mx-auto sm:my-20  sm:py-4 sm:px-8 ${size} `}>
+          {children}
+        </div>
       </main>
     </>
   );

@@ -4,7 +4,7 @@ import Link from 'next/link';
 // import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { ProjectType } from '../types/project';
 import Card from '../components/Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 
 export async function fetcher<JSON = any>(
@@ -16,6 +16,14 @@ export async function fetcher<JSON = any>(
 }
 
 const Projects = () => {
+  const [isSmall, setIsSmall] = useState<boolean>(false);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      console.log('resize');
+      setIsSmall(window.innerWidth < 640 ? true : false);
+    });
+  }, []);
   const {
     data, // default value is []
     //if data is undefined or null or empty array otherwise data is assigned to projects
@@ -27,7 +35,7 @@ const Projects = () => {
 
   if (error)
     return (
-      <div className='flex flex-col items-center'>
+      <div className='flex  flex-col items-center'>
         Sorry API rate limit exceeded :( You can check out my projects on github
         instead{' '}
         <Link href='https://github.com/yoavv2'>
@@ -57,7 +65,13 @@ const Projects = () => {
 
   return (
     <Layout size='max-w-screen-xl'>
-      <section className='flex  overflow-x-scroll p-12'>
+      {/* <div className='flex flex-col-reverse'> */}
+      {/* className='flex flex-col items-center justify-center overflow-x-scroll
+      sm:flex-row sm:p-12' */}
+      <section
+        className='flex flex-col items-center justify-center overflow-x-scroll p-12
+      sm:flex-row sm:justify-start sm:p-12'
+      >
         {data?.map((project: ProjectType) => (
           <div key={project.name}>
             <Card
@@ -74,13 +88,17 @@ const Projects = () => {
         ))}
       </section>
       <div className=' flex justify-center'>
-        <article className='my-10 flex  flex-col items-start border border-dashed border-b-slate-500 bg-neutral-300  px-4 dark:border-white dark:bg-neutral-700'>
-          {/* find the repository readme by the name  */}
+        {!isSmall && (
+          <article className='my-10 flex  flex-col items-start border border-dashed border-b-slate-500 bg-slate-300  px-4 dark:border-white dark:bg-slate-700'>
+            {/* find the repository readme by the name  */}
 
-          <ReactMarkdown>
-            {data?.find((repo: any) => repo.name == repoName)?.readme}
-          </ReactMarkdown>
-        </article>
+            <ReactMarkdown>
+              {data?.find((repo: any) => repo.name == repoName)?.readme}
+            </ReactMarkdown>
+          </article>
+        )}
+
+        {/* </div> */}
       </div>
     </Layout>
   );

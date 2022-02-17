@@ -50,7 +50,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
         </Link>
         .
       </h2>
-      <article className='ml-32'>
+      <article className='sm:ml-32'>
         <h1 className='mb-3 text-gray-900 dark:text-white'>
           {frontMatter.title}
         </h1>

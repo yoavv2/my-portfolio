@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
+import NavLink from './NavLink';
 
 const Navigation = (): JSX.Element => {
   const router = useRouter();
   const { pathname } = router;
-
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  // hidden md:block
   return (
-    <nav>
+    <nav className=' flex flex-col items-center  sm:flex-row'>
       <Link href='/'>
         <a
           className={` font-semibold ${
@@ -45,7 +48,7 @@ const Navigation = (): JSX.Element => {
         <a
           className={` font-semibold  ${
             pathname === '/projects'
-              ? 'bg-gradient-to-r from-orange-400  to-red-700 bg-clip-text fill-transparent  font-extrabold text-stone-900 text-transparent'
+              ? 'bg-gradient-to-r from-orange-400  to-red-700 bg-clip-text fill-transparent font-extrabold text-stone-900 text-transparent'
               : 'text-gray-900 dark:text-white'
           } px-6 py-4`}
         >
