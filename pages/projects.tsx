@@ -89,7 +89,7 @@ const Projects = () => {
       </section>
       <div className=' flex justify-center'>
         {!isSmall && (
-          <article className='my-10 flex  flex-col items-start border border-dashed border-b-slate-500 bg-slate-300  px-4 dark:border-white dark:bg-slate-700'>
+          <article className='shadow-3xl my-10  flex min-w-full flex-col items-start border border-dashed border-b-slate-500 bg-gray-50 px-4  dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
             {/* find the repository readme by the name  */}
 
             <ReactMarkdown>
