@@ -17,6 +17,7 @@ import { PostType } from '../../types/post';
 import { MetaProps } from '../../types/layout';
 
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
+import Layout from '../../components/Layout';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -42,7 +43,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
     type: 'article',
   };
   return (
-    <>
+    <Layout>
       <h2 className='font-mdm mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
         <Link href='/blog'>
           <a className='hover:underline'>Back to Blog</a>
@@ -60,7 +61,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
           <MDXRemote {...source} components={components} />
         </div>
       </article>
-    </>
+    </Layout>
   );
 };
 

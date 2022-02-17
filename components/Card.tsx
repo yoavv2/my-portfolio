@@ -9,6 +9,7 @@ const Card = ({
   languages,
   created_at,
   setRepoName,
+  homepage,
 }: any) => {
   return (
     <>
@@ -28,11 +29,24 @@ const Card = ({
           <p className='text-md bg-gradient-to-r bg-clip-text fill-transparent font-mono  hover:from-orange-400 hover:to-red-700 hover:text-transparent'>
             {description}
           </p>
+          {homepage && (
+            <Link href={`https://${homepage}`}>
+              <a
+                target='_blank'
+                className='cardTag ml-4 flex w-1/2 items-center justify-center bg-gradient-to-r bg-clip-text
+             fill-transparent font-mono text-sm 
+             hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline'
+              >
+                view project 
+              </a>
+            </Link>
+          )}
         </header>
         <Link href={html_url}>
           <a
             target='_blank'
-            className='cardTag ml-4 flex w-1/2 items-center justify-center bg-gradient-to-r bg-clip-text fill-transparent font-mono text-xl 
+            className='cardTag ml-4 flex w-1/2 items-center justify-center bg-gradient-to-r bg-clip-text
+             fill-transparent font-mono text-sm 
              hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline'
           >
             {' '}

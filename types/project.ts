@@ -7,4 +7,5 @@ export type ProjectType = {
   languages: [string];
   readme?: any;
   created_at: string;
+  homepage?: string;
 };

@@ -1,7 +1,7 @@
 import useSWR, { Key, Fetcher } from 'swr';
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+// import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { ProjectType } from '../types/project';
 import Card from '../components/Card';
 import { useState } from 'react';
@@ -16,7 +16,13 @@ export async function fetcher<JSON = any>(
 }
 
 const Projects = () => {
-  const { data, error } = useSWR('/api/github', fetcher);
+  const {
+    data, // default value is []
+    //if data is undefined or null or empty array otherwise data is assigned to projects
+    // variable and projects is assigned to data.projects which is an array of projects type (ProjectType)
+
+    error,
+  } = useSWR<ProjectType[]>('/api/github', fetcher);
   const [repoName, setRepoName] = useState<string>('');
 
   if (error)
@@ -41,26 +47,19 @@ const Projects = () => {
     );
   if (!data)
     return (
-      <div>
+      <Layout>
         <p>Loading...</p>
-      </div>
+      </Layout>
     );
   console.log(data);
 
-  data?.repos?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
+  data?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
 
   return (
     <Layout size='max-w-screen-xl'>
       <section className='flex  overflow-x-scroll p-12'>
-        {data?.repos.map((project: ProjectType) => (
+        {data?.map((project: ProjectType) => (
           <div key={project.name}>
-            {/* <h2 className=' '>{project.name}</h2>
-          <p>{project.description}</p>
-          <Link href={`${project.html_url}`}>
-            <a target='_blank'> view project</a>
-          </Link>
-          <p>{project.language}</p>
-          <ReactMarkdown>{project.readme}</ReactMarkdown> */}
             <Card
               name={project.name}
               html_url={project.html_url}
@@ -69,6 +68,7 @@ const Projects = () => {
               language={project.language}
               created_at={project.created_at}
               setRepoName={setRepoName}
+              homepage={project.homepage}
             />
           </div>
         ))}
@@ -78,7 +78,7 @@ const Projects = () => {
           {/* find the repository readme by the name  */}
 
           <ReactMarkdown>
-            {data?.repos?.find((repo: any) => repo.name == repoName)?.readme}
+            {data?.find((repo: any) => repo.name == repoName)?.readme}
           </ReactMarkdown>
         </article>
       </div>
