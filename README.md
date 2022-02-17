@@ -1,12 +1,14 @@
 # Project Purpose and Goals
 
-This Project included 3 Pages:
+This Project included 4 Pages:
 
-**Home Page** where I introduce myself.
+- **Home Page** where I introduce myself.
 
-**Blog Page** where I'll be posting things that I learned and I want to share.
+* **Blog Index Page** where I show all the blog posts.
 
-**Projects Page** where I'm showing what I’ve been working on using github api.
+  - **Blog Post**
+
+- **Projects Page** where I'm showing what I’ve been working on using github api.
 
 # The Stack and Explanation
 
