@@ -18,7 +18,8 @@ const Layout = ({
   return (
     <>
       <header>
-        <div className='mx-auto max-w-6xl md:px-8 '>
+        {/* mx-auto max-w-6xl md:px-8 */}
+        <div className='fixed left-1/2 md:static md:mx-auto md:max-w-6xl  md:px-8'>
           <div className='flex items-center justify-between py-6'>
             <ThemeSwitch />
             <Navigation />

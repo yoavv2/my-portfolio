@@ -29,7 +29,11 @@ const Projects = () => {
     // variable and projects is assigned to data.projects which is an array of projects type (ProjectType)
 
     error,
-  } = useSWR<ProjectType[]>('/api/github', fetcher);
+  } = useSWR<ProjectType[]>('/api/github', fetcher, {
+    revalidateOnFocus: false,
+    refreshInterval: 0,
+    refreshWhenHidden: false,
+  });
   const [repoName, setRepoName] = useState<string>('');
 
   if (error)
@@ -62,6 +66,7 @@ const Projects = () => {
     );
 
   data?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
+
 
   return (
     <Layout size='max-w-screen-xl' padding='px-0'>
