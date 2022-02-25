@@ -14,8 +14,8 @@ const ThemeSwitch = (): JSX.Element => {
   }
 
   const isDark = theme === 'dark';
-  const color = isDark ? '#fff' : '#000';
-  const maskColor = isDark ? '#fff' : '#fcfcfc';
+  const color = isDark ? '#FEF08A' : '#000';
+  const maskColor = isDark ? '#fff' : '#FEF08A';
 
   return (
     <button

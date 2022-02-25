@@ -43,7 +43,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
     type: 'article',
   };
   return (
-    <Layout>
+    <Layout padding='px-4'>
       <h2 className='font-mdm mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
         <Link href='/blog'>
           <a className='hover:underline'>Back to Blog</a>

@@ -5,8 +5,9 @@ import Layout from '../components/Layout';
 const Home = (): JSX.Element => {
   return (
     <Layout size='max-w-5xl'>
-      <h1 className='hoverAnimation font-mono text-4xl'>
-        Hi there! My name is Yoav Hevroni
+      <h1 className='hoverAnimation font-mono text-6xl'>Hi there!</h1>
+      <h1 className='hoverAnimation font-mono text-5xl'>
+        My name is Yoav Hevroni
       </h1>
       <h1 className='hoverAnimation font-mono text-3xl'>
         I’m a Front-End Developer.

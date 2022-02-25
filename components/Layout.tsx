@@ -6,12 +6,14 @@ type LayoutProps = {
   children: React.ReactNode;
   customMeta?: MetaProps;
   size?: string;
+  padding?: string;
 };
 
 const Layout = ({
   children,
   customMeta,
   size = 'max-w-6xl',
+  padding = 'px-8',
 }: LayoutProps): JSX.Element => {
   return (
     <>
@@ -25,7 +27,7 @@ const Layout = ({
         </div>
       </header>
       <main>
-        <div className={`  sm:mx-auto sm:my-20  sm:py-4 sm:px-8 ${size} `}>
+        <div className={`   sm:mx-auto  sm:my-20 sm:py-4 ${size} ${padding}`}>
           {children}
         </div>
       </main>

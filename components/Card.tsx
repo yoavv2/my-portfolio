@@ -13,10 +13,11 @@ const Card = ({
 }: any) => {
   return (
     <>
+      {/* bg-[#17141d]  */}
       <article
         className='min-w-32 hover:divide-x84 shadow-3xl relative clear-both flex h-[450px] w-96 cursor-pointer
-      flex-col rounded-3xl bg-gray-50 p-6 transition-transform
-       hover:-translate-y-5 focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-[#17141d] dark:shadow-gray-700'
+      flex-col rounded-3xl bg-yellow-100 p-6 transition-transform
+       hover:-translate-y-5 focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-slate-800 dark:shadow-gray-700'
         onClick={() => setRepoName(name)}
       >
         <header className='mb-auto flex-grow'>
@@ -54,7 +55,7 @@ const Card = ({
           </a>
         </Link>
 
-        <div className='relative flex h-20  items-center '>
+        <div className='relative flex h-20 items-center '>
           <a
             className=' justify center relative box-border flex flex-col items-center '
             href='#'
@@ -82,7 +83,7 @@ const Card = ({
         <div className='text-md mx-4 mt-4  flex flex-wrap  px-0 pt-2 pb-4 font-bold uppercase leading-4 '>
           {Object.keys(languages).map((lang: string) => (
             <a
-              className='cardTag'
+              className='cardTag mb-1'
               href='#'
               key={lang}
               style={{
