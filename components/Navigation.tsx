@@ -5,7 +5,6 @@ import { useState } from 'react';
 const Navigation = (): JSX.Element => {
   const router = useRouter();
   const { pathname } = router;
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <nav className=' flex flex-col items-center  sm:flex-row'>
@@ -15,7 +14,7 @@ const Navigation = (): JSX.Element => {
             pathname === '/'
               ? 'bg-gradient-to-r from-orange-400  to-red-700 bg-clip-text fill-transparent  font-extrabold text-stone-900 text-transparent'
               : 'text-gray-900 dark:text-white '
-          } py-4 pr-6 `}
+          } py-4 px-6  `}
         >
           Home
         </a>
