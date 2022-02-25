@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head />
-        <body className='bg-yellow-200 text-gray-900 dark:bg-purple-700 dark:text-white'>
+        <body className='bg-yellow-200 text-gray-900 dark:bg-purple-900 dark:text-white'>
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' />
           <link
