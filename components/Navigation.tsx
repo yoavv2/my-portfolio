@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 const Navigation = (): JSX.Element => {
   const router = useRouter();
@@ -42,6 +41,7 @@ const Navigation = (): JSX.Element => {
           <span className='relative'>Blog</span>
         </a>
       </Link>
+
       <Link href='/projects'>
         <a
           className={` font-semibold  ${

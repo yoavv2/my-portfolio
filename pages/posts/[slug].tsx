@@ -18,7 +18,7 @@ import { MetaProps } from '../../types/layout';
 
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 import Layout from '../../components/Layout';
-
+import DropDown from '../../components/DropDown';
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
@@ -27,6 +27,7 @@ const components = {
   Head,
   Image,
   Link,
+  DropDown,
 };
 
 type PostPageProps = {

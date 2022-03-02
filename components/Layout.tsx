@@ -1,9 +1,8 @@
-import Navigation from './Navigation';
 import ThemeSwitch from './ThemeSwitch';
 import { MetaProps } from '../types/layout';
-import { useEffect, useState } from 'react';
-import { useRive, useStateMachineInput } from 'rive-react';
-// import shopIcon from './shopicon.riv';
+import Navigation2 from './Navigation2';
+import { motion } from 'framer-motion';
+
 type LayoutProps = {
   children: React.ReactNode;
   customMeta?: MetaProps;
@@ -17,66 +16,8 @@ const Layout = ({
   size = 'max-w-6xl',
   padding = 'px-8',
 }: LayoutProps): JSX.Element => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [width, setWidth] = useState<number>(0); // default width, detect on server.
-  const [isMobile, setIsMobile] = useState(width <= 375);
-
-  // const STATE_MACHINE_NAME = 'State Machine 1';
-
-  // const { rive, RiveComponent } = useRive({
-  //   src: shopIcon,
-  //   // animations: "Correct",
-  //   stateMachines: STATE_MACHINE_NAME,
-  //   autoplay: true,
-  // });
-
-  // const onError = useStateMachineInput(rive, STATE_MACHINE_NAME, 'Incorrect');
-  // const onSucsess = useStateMachineInput(rive, STATE_MACHINE_NAME, 'Correct');
-
-  const handleResize = () => setWidth(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [handleResize]);
-
-  useEffect(() => {
-    setIsMobile(width <= 375);
-  }, [width]);
-  console.log(width);
-
-  useEffect(() => {
-    if (!isMobile) setIsOpen(false);
-  }, [isMobile]);
-
   return (
     <>
-      <header className='fixed top-0 w-full bg-yellow-200 dark:bg-purple-900  '>
-        {/* mx-auto max-w-6xl md:px-8 */}
-        <div className='  md:mx-auto md:max-w-6xl md:px-8'>
-          <div className='flex flex-col items-center justify-evenly py-6 align-middle md:flex-row md:justify-between '>
-            {isMobile && (
-              <div
-                className='h-10 w-10 rounded-full bg-red-700'
-                onClick={() => setIsOpen(!isOpen)}
-              ></div>
-            )}
-            {isMobile && isOpen && (
-              <>
-                <Navigation />
-                <ThemeSwitch />
-              </>
-            )}
-            {!isMobile && (
-              <>
-                <ThemeSwitch />
-                <Navigation />
-              </>
-            )}
-            {/* <Navbar /> */}
-          </div>
-        </div>
-      </header>
       <main>
         <div
           className={`my-40  sm:mx-auto  sm:my-20 sm:py-4 ${size} ${padding}`}
@@ -84,6 +25,21 @@ const Layout = ({
           {children}
         </div>
       </main>
+      <footer>
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{
+            scale: 1.1,
+          }}
+          className='fixed bottom-0 left-0 right-0 mx-auto mb-10 flex max-w-lg flex-nowrap items-center justify-evenly rounded-2xl bg-gray-100 py-1 text-center dark:bg-gray-900'
+        >
+          <ThemeSwitch />
+          <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
+          <Navigation2 />
+        </motion.nav>
+      </footer>
     </>
   );
 };

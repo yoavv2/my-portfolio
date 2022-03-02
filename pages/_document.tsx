@@ -1,5 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-
+// bg-yellow-200 text-gray-900 dark:bg-purple-900 dark:text-white
 class MyDocument extends Document {
   render(): JSX.Element {
     return (

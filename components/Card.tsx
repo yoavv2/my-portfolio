@@ -15,9 +15,9 @@ const Card = ({
     <>
       {/* bg-[#17141d]  */}
       <article
-        className='min-w-32 hover:divide-x84 shadow-3xl relative clear-both flex h-[450px] w-96 cursor-pointer
-      flex-col rounded-3xl bg-yellow-100 p-6 transition-transform
-       hover:-translate-y-5 focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-slate-800 dark:shadow-gray-700'
+        className='min-w-32 hover:divide-x84 shadow-3xl relative -z-10 clear-both flex h-[450px] w-96
+      cursor-pointer flex-col rounded-3xl bg-yellow-100 p-6
+       transition-transform hover:-translate-y-5 focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-slate-800 dark:shadow-gray-700 '
         onClick={() => setRepoName(name)}
       >
         <header className='mb-auto flex-grow'>
