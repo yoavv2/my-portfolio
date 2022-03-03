@@ -23,7 +23,12 @@ function Navigation2() {
             x: -5,
             boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
           }}
-          whileTap={{ scale: 0.85 }}
+          whileTap={{
+            scale: 0.85,
+            y: -10,
+            boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
+          }}
+          // whileClick={{ scale: 0.85 }}
         >
           <ThemeSwitch />
         </motion.div>
@@ -42,7 +47,11 @@ function Navigation2() {
             x: -5,
             boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
           }}
-          whileTap={{ scale: 0.85 }}
+          whileTap={{
+            scale: 0.85,
+            y: -10,
+            boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
+          }}
           style={{ borderRadius: '20%' }}
         >
           <Link href='/'>
@@ -89,7 +98,11 @@ function Navigation2() {
             x: -5,
             boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
           }}
-          whileTap={{ scale: 0.85 }}
+          whileTap={{
+            scale: 0.85,
+            y: -10,
+            boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
+          }}
           style={{ borderRadius: '20%' }}
         >
           <Link href='/blog'>
@@ -176,7 +189,11 @@ function Navigation2() {
             x: -5,
             boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
           }}
-          whileTap={{ scale: 0.85 }}
+          whileTap={{
+            scale: 0.85,
+            y: -10,
+            boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
+          }}
           style={{ borderRadius: '20%' }}
         >
           <Link href='mailto:yoavhevroni1@gmail.com'>
@@ -216,7 +233,11 @@ function Navigation2() {
             x: -5,
             boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
           }}
-          whileTap={{ scale: 0.85 }}
+          whileTap={{
+            scale: 0.85,
+            y: -10,
+            boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
+          }}
           style={{ borderRadius: '20%' }}
         >
           <Link href='https://github.com/yoavv2'>
@@ -248,7 +269,11 @@ function Navigation2() {
             x: -5,
             boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
           }}
-          whileTap={{ scale: 0.85 }}
+          whileTap={{
+            scale: 0.85,
+            y: -10,
+            boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
+          }}
           style={{ borderRadius: '20%' }}
         >
           <Link href='https://www.linkedin.com/in/yoavhevroni/'>
