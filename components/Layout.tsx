@@ -16,36 +16,15 @@ const Layout = ({
   size = 'max-w-6xl',
   padding = 'px-8',
 }: LayoutProps): JSX.Element => {
-
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
   return (
     <>
-      <motion.main variants={container}>
-        <motion.div
-          variants={item}
-          className={`my-40  sm:mx-auto  sm:my-20 sm:py-4 ${size} ${padding}`}
+      <main>
+        <div
+          className={`mb-40  sm:mx-auto  sm:my-20 sm:py-4 ${size} ${padding}`}
         >
           {children}
-        </motion.div>
-      </motion.main>
+        </div>
+      </main>
       <footer>
         <motion.nav
           initial={{ opacity: 0 }}

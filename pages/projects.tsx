@@ -68,7 +68,6 @@ const Projects = () => {
 
   data?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
 
-  
   return (
     <Layout size='max-w-screen-2xl' padding='px-0'>
       {/* <div className='flex flex-col-reverse'> */}
