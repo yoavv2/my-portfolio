@@ -23,7 +23,6 @@ const Projects = () => {
       setIsSmall(window.innerWidth < 640 ? true : false);
     });
   }, []);
-  console.log(isSmall);
 
   const {
     data, // default value is []

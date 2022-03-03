@@ -11,7 +11,7 @@ const Card = ({
   setRepoName,
   homepage,
 }: any) => {
-  // console.log(html_url);
+
 
   return (
     <>
