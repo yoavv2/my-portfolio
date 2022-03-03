@@ -33,7 +33,7 @@ const Layout = ({
           whileHover={{
             scale: 1.1,
           }}
-          className='fixed bottom-0 left-0 right-0 mx-auto mb-10 flex h-16 w-2/3  items-center justify-evenly space-x-2 overflow-y-hidden overflow-x-scroll rounded-2xl bg-gray-100 py-1 pl-48 text-center dark:bg-gray-900 sm:max-w-lg sm:pl-0 '
+          className='fixed bottom-0 left-0 right-0 mx-auto mb-10 flex h-16 w-2/3 items-center justify-evenly space-x-2 overflow-y-hidden overflow-x-scroll rounded-2xl bg-gray-100 py-1 pl-48 text-center dark:bg-gray-900 sm:max-w-lg sm:overflow-x-hidden sm:pl-0 '
         >
           <ThemeSwitch />
           <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
