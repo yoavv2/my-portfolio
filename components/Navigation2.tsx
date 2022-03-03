@@ -11,6 +11,18 @@ function Navigation2() {
       <nav className=' flex space-x-2 '>
         <motion.div
           className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
+          whileHover={{
+            scale: 0.95,
+            y: -10,
+            x: -5,
+            boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
+          }}
+          whileFocus={{
+            scale: 0.95,
+            y: -10,
+            x: -5,
+            boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
+          }}
           whileTap={{ scale: 0.85 }}
         >
           <ThemeSwitch />
