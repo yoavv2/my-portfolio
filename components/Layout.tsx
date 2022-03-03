@@ -20,7 +20,7 @@ const Layout = ({
     <>
       <main>
         <div
-          className={`mb-40  sm:mx-auto  sm:my-20 sm:py-4 ${size} ${padding}`}
+          className={`mb-40 mt-10 sm:mx-auto  sm:my-20 sm:py-4 ${size} ${padding}`}
         >
           {children}
         </div>
