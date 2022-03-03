@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import ThemeSwitch from './ThemeSwitch';
 
 function Navigation2() {
   const router = useRouter();
@@ -8,6 +9,13 @@ function Navigation2() {
   return (
     <>
       <nav className=' flex space-x-2 '>
+        <motion.div
+          className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
+          whileTap={{ scale: 0.85 }}
+        >
+          <ThemeSwitch />
+        </motion.div>
+        <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
         <motion.div
           className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
