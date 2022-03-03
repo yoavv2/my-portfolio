@@ -9,31 +9,12 @@ date: '2022-03-02'
 
 ```jsx:DropDown-Structure
 <DropDownContainer>
-  <DropDownHeader
-    onClick={toggling}
-    style={{
-      background: selectedOption.color ? selectedOption.color : '#fff',
-    }}
-  >
-    {' '}
-    {selectedOption.name || 'Choose'}
-  </DropDownHeader>
-
-  {isOpen && (
+  <DropDownHeader/>
     <DropDownListContainer>
       <DropDownList>
-        {array.map((option) => (
-          <ListItem
-            style={{ background: option.color }}
-            key={option.name}
-            onClick={() => onOptionClicked(option)}
-          >
-            {option.name}
-          </ListItem>
-        ))}
+          <ListItem/>
       </DropDownList>
     </DropDownListContainer>
-  )}
 </DropDownContainer>
 ```
 

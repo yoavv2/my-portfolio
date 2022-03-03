@@ -16,15 +16,36 @@ const Layout = ({
   size = 'max-w-6xl',
   padding = 'px-8',
 }: LayoutProps): JSX.Element => {
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
   return (
     <>
-      <main>
-        <div
+      <motion.main variants={container}>
+        <motion.div
+          variants={item}
           className={`my-40  sm:mx-auto  sm:my-20 sm:py-4 ${size} ${padding}`}
         >
           {children}
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
       <footer>
         <motion.nav
           initial={{ opacity: 0 }}
@@ -33,7 +54,10 @@ const Layout = ({
           whileHover={{
             scale: 1.1,
           }}
-          className='fixed bottom-0 left-0 right-0 mx-auto mb-10 flex h-16 w-2/3 items-center justify-evenly space-x-2 overflow-y-hidden overflow-x-scroll rounded-2xl bg-gray-100 py-1 pl-48 text-center dark:bg-gray-900 sm:max-w-lg sm:overflow-x-hidden sm:pl-0 '
+          className='fixed bottom-0 left-0 right-0 mx-auto mb-10 flex h-16 w-2/3
+           items-center justify-evenly space-x-2 overflow-y-hidden overflow-x-scroll 
+           rounded-2xl bg-gray-100 py-1 pl-48 text-center dark:bg-gray-900 sm:max-w-lg
+            sm:overflow-x-hidden sm:pl-0 '
         >
           {/* <motion.div
             className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'

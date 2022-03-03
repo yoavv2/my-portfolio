@@ -49,7 +49,10 @@ const blog = ({ posts }: IndexProps): JSX.Element => {
                 height={400}
               />
               <h2 className='mb-20 mt-8 font-mono text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
-                <a className='hoverAnimation hover:underline'>Read more</a>.
+                <span className='hoverAnimation hover:underline'>
+                  Read more
+                </span>
+                .
               </h2>
             </a>
           </Link>

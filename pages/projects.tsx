@@ -23,6 +23,8 @@ const Projects = () => {
       setIsSmall(window.innerWidth < 640 ? true : false);
     });
   }, []);
+  console.log(isSmall);
+
   const {
     data, // default value is []
     //if data is undefined or null or empty array otherwise data is assigned to projects
@@ -67,15 +69,15 @@ const Projects = () => {
 
   data?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
 
-
+  console.log(data);
   return (
-    <Layout size='max-w-screen-xl' padding='px-0'>
+    <Layout size='max-w-screen-2xl' padding='px-0'>
       {/* <div className='flex flex-col-reverse'> */}
       {/* className='flex flex-col items-center justify-center overflow-x-scroll
       sm:flex-row sm:p-12' */}
       <section
-        className='flex flex-col items-center justify-center overflow-x-scroll p-12
-      sm:flex-row sm:justify-start sm:p-12'
+        className='mx-auto flex  flex-col items-center justify-center
+                    overflow-x-scroll rounded-xl p-12 sm:flex-row sm:justify-start sm:p-12'
       >
         {data?.map((project: ProjectType) => (
           <div key={project.name}>
