@@ -73,6 +73,9 @@ const Projects = () => {
       {/* <div className='flex flex-col-reverse'> */}
       {/* className='flex flex-col items-center justify-center overflow-x-scroll
       sm:flex-row sm:p-12' */}
+
+      <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
+
       <ul
         className='mx-auto flex  flex-col items-center justify-center
                     overflow-x-scroll rounded-xl p-12 sm:flex-row sm:justify-start sm:p-12'
