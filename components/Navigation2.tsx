@@ -71,8 +71,7 @@ function Navigation2() {
         </motion.li>
 
         <motion.li
-          className='  flex h-12 w-12 items-center justify-center
-            rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white '
+          className=' relative flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
             scale: 0.95,
             y: -10,
@@ -99,15 +98,14 @@ function Navigation2() {
           </Link>
           {pathname === '/blog' && (
             <motion.div
-              className=' absolute  top-full right-0 left-0  h-1  rounded-full  bg-gray-600 underline dark:bg-gray-100 '
+              className=' absolute top-full right-0 left-0  h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
               layoutId='underline'
             />
           )}
         </motion.li>
 
         <motion.li
-          className='  flex h-12 w-12 items-center justify-center
-            rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white '
+          className=' relative flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
             scale: 0.95,
             y: -10,
@@ -130,12 +128,14 @@ function Navigation2() {
           </Link>
           {pathname === '/projects' && (
             <motion.div
-              className=' absolute  top-full right-0 left-0  h-1  rounded-full  bg-gray-600 underline dark:bg-gray-100 '
+              className=' absolute top-full right-0 left-0  h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
               layoutId='underline'
             />
           )}
         </motion.li>
+
         <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
+
         <motion.li
           className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
