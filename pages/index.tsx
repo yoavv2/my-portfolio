@@ -49,7 +49,9 @@ const Home = (): JSX.Element => {
           that puts UI/UX at the top of the list.
           <br />
           <br />- My Stack is Mostly React with Next, MongoDB with Mongoose,
-          Node with Express, and GraphQL with Apollo Client.
+          Node with Express and
+          <br />
+          Im Experienced with Typescript, GraphQL with Apollo, firebase.
           <br />- B.Sc. in Mathematics and Computer Science.
         </p>
 
