@@ -11,8 +11,6 @@ const Card = ({
   setRepoName,
   homepage,
 }: any) => {
-
-
   return (
     <>
       {/* bg-[#17141d]  */}
@@ -39,7 +37,7 @@ const Card = ({
                 target='_blank'
                 className='cardTag ml-4 flex w-1/2 items-center justify-center bg-gradient-to-r bg-clip-text
              fill-transparent font-mono text-sm 
-             hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline'
+             hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline '
               >
                 VIEW PROJECT
               </a>
@@ -59,10 +57,7 @@ const Card = ({
         </Link>
 
         <div className='relative flex h-20 items-center '>
-          <a
-            className=' justify center relative box-border flex flex-col items-center '
-            href='#'
-          >
+          <span className=' relative box-border flex flex-col items-center justify-center'>
             <img
               className='filter-shadow-lg absolute bottom-4 block h-10 w-10 overflow-hidden rounded-full bg-white'
               src='./images/avatar.png'
@@ -75,7 +70,7 @@ const Card = ({
               {/* absolute bottom-0 top-8 */}
               <path d='M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4'></path>
             </svg>
-          </a>
+          </span>
 
           <div className=' font-mdm  ml-3 mb-3 bg-gradient-to-r bg-clip-text fill-transparent   hover:from-orange-400 hover:to-red-700 hover:text-transparent '>
             <div className=' font-extrabold text-[#7a7a8c]'>Author</div>

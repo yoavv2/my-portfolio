@@ -9,7 +9,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import path from 'path';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 // import Layout, { WEBSITE_HOST_URL } from '../../components/Layout';
@@ -19,6 +19,13 @@ import { MetaProps } from '../../types/layout';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 import Layout from '../../components/Layout';
 import DropDown from '../../components/DropDown';
+
+import {
+  motion,
+  useSpring,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion';
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
@@ -36,6 +43,13 @@ type PostPageProps = {
 };
 
 const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
+  const [isComplete, setIsComplete] = useState<boolean>(false);
+  const { scrollYProgress } = useViewportScroll();
+  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
+  const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
+
+  useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
+
   const customMeta: MetaProps = {
     title: `${frontMatter.title} - Hunter Chang`,
     description: frontMatter.description,
@@ -52,6 +66,37 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
         .
       </h2>
       <article className='sm:ml-32'>
+        <svg
+          className={`w-16s fixed top-5 right-5  z-50 h-16 md:top-10 md:right-10 md:h-20 md:w-20 
+          
+          `}
+          viewBox='0 0 60 60'
+        >
+          <motion.path
+            fill='none'
+            strokeWidth='5'
+            stroke='white'
+            strokeDasharray='0 1'
+            d='M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0'
+            style={{
+              pathLength,
+              rotate: 90,
+              translateX: 5,
+              translateY: 5,
+              scaleX: -1, // Reverse direction of line animation
+             
+            }}
+          />
+          <motion.path
+            fill='none'
+            strokeWidth='5'
+            stroke='white'
+            d='M14,26 L 22,33 L 35,16'
+            initial={false}
+            strokeDasharray='0 1'
+            animate={{ pathLength: isComplete ? 1 : 0 }}
+          />
+        </svg>
         <h1 className='mb-3 text-gray-900 dark:text-white'>
           {frontMatter.title}
         </h1>

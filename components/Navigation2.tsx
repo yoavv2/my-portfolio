@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import ThemeSwitch from './ThemeSwitch';
@@ -8,10 +8,11 @@ import { Home, Blog, Projects, Github, LinkedIn, Mail } from './Icons';
 function Navigation2() {
   const router = useRouter();
   const { pathname } = router;
+
   return (
     <>
-      <nav className=' flex space-x-2 '>
-        <motion.div
+      <ul className=' flex space-x-2 ' aria-label='navigation'>
+        <motion.li
           className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
             scale: 0.95,
@@ -30,12 +31,11 @@ function Navigation2() {
             y: -10,
             boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
           }}
-          // whileClick={{ scale: 0.85 }}
         >
           <ThemeSwitch />
-        </motion.div>
+        </motion.li>
         <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
-        <motion.div
+        <motion.li
           className=' relative flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
             scale: 0.95,
@@ -56,32 +56,21 @@ function Navigation2() {
           }}
           style={{ borderRadius: '20%' }}
         >
-          {/* <label
-            className='absolute  bottom-full left-0 right-0 '
-            htmlFor='Home'
-          >
-            home
-          </label> */}
           <Link href='/'>
-            <a className='relative p-5'>
+            <a className='relative p-5' aria-label='home'>
               <Home />
             </a>
           </Link>
 
-          {/* <motion.span
-            whileHover={{
-              scale: 1.1,
-              y: 20,
+          {pathname === '/' && (
+            <motion.div
+              className=' absolute top-full right-0 left-0  h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
+              layoutId='underline'
+            />
+          )}
+        </motion.li>
 
-              boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
-            }}
-            className={`absolute top-full   h-1 w-1 rounded-full bg-white 
-            ${pathname === '/' ? 'block' : 'hidden'}
-            `}
-          ></motion.span> */}
-        </motion.div>
-
-        <motion.div
+        <motion.li
           className='  flex h-12 w-12 items-center justify-center
             rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white '
           whileHover={{
@@ -104,13 +93,19 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='/blog'>
-            <a className='p-5'>
+            <a className='p-5' aria-label='blog'>
               <Blog />
             </a>
           </Link>
-        </motion.div>
+          {pathname === '/blog' && (
+            <motion.div
+              className=' absolute  top-full right-0 left-0  h-1  rounded-full  bg-gray-600 underline dark:bg-gray-100 '
+              layoutId='underline'
+            />
+          )}
+        </motion.li>
 
-        <motion.div
+        <motion.li
           className='  flex h-12 w-12 items-center justify-center
             rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white '
           whileHover={{
@@ -129,13 +124,19 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='/projects'>
-            <a className='p-5'>
+            <a className='p-5' aria-label='projects'>
               <Projects />
             </a>
           </Link>
-        </motion.div>
+          {pathname === '/projects' && (
+            <motion.div
+              className=' absolute  top-full right-0 left-0  h-1  rounded-full  bg-gray-600 underline dark:bg-gray-100 '
+              layoutId='underline'
+            />
+          )}
+        </motion.li>
         <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
-        <motion.div
+        <motion.li
           className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
             scale: 0.95,
@@ -157,12 +158,12 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='mailto:yoavhevroni1@gmail.com'>
-            <a className='p-5' target='_blank'>
+            <a className='p-5' target='_blank' aria-label='mail'>
               <Mail />
             </a>
           </Link>
-        </motion.div>
-        <motion.div
+        </motion.li>
+        <motion.li
           className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
             scale: 0.95,
@@ -184,12 +185,12 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='https://github.com/yoavv2'>
-            <a className='p-5' target='_blank'>
+            <a className='p-5' target='_blank' aria-label='github'>
               <Github />
             </a>
           </Link>
-        </motion.div>
-        <motion.div
+        </motion.li>
+        <motion.li
           className='  flex h-12 w-12 items-center justify-center  rounded-lg bg-gray-200 text-gray-900  dark:bg-gray-800 dark:text-white'
           whileHover={{
             scale: 0.95,
@@ -211,12 +212,12 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='https://www.linkedin.com/in/yoavhevroni/'>
-            <a className='p-5' target='_blank'>
+            <a className='p-5' target='_blank' aria-label='linkedin'>
               <LinkedIn />
             </a>
           </Link>
-        </motion.div>
-      </nav>
+        </motion.li>
+      </ul>
     </>
   );
 }

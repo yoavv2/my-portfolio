@@ -39,25 +39,18 @@ const Home = (): JSX.Element => {
         </motion.div>
         <p className='hoverAnimation mt-20 font-mono'>
           I’m very comfortable working with JavaScript, HTML and CSS.
-        </p>
-        <p className='hoverAnimation font-mono'>
+          <br />
           Building and maintaining web applications and dashboards using React
           or NextJS.
-        </p>
-        <p className='hoverAnimation font-mono'>
+          <br />
+          <br />
           Looking to grow as a front-end developer in a company
-        </p>
-        <p className='hoverAnimation font-mono'>
+          <br />
           that puts UI/UX at the top of the list.
-        </p>
-        <p className='hoverAnimation font-mono'>
-          - My Stack is Mostly React with Next, MongoDB with Mongoose, Node with
-          Express, and GraphQL with Apollo Client.
-        </p>
-
-        <p className='hoverAnimation font-mono'>
-          {' '}
-          - B.Sc. in Mathematics and Computer Science.
+          <br />
+          <br />- My Stack is Mostly React with Next, MongoDB with Mongoose,
+          Node with Express, and GraphQL with Apollo Client.
+          <br />- B.Sc. in Mathematics and Computer Science.
         </p>
 
         <h2 className='hoverAnimation my-10 font-mono'>
@@ -68,6 +61,7 @@ const Home = (): JSX.Element => {
         <Link href='https://www.linkedin.com/in/yoavhevroni/'>
           <a
             target='_blank'
+            aria-label='linkedin'
             className='group relative inline-flex  items-center justify-start overflow-hidden rounded-full px-5 py-3 font-mono font-bold'
           >
             <span className='absolute left-0 top-0 h-32 w-32 translate-x-12 -translate-y-2 rotate-45 bg-slate-300 opacity-[3%] dark:bg-white'></span>
@@ -82,6 +76,7 @@ const Home = (): JSX.Element => {
         <Link href='https://github.com/yoavv2'>
           <a
             target='_blank'
+            aria-label='github'
             className='group relative inline-flex   flex-shrink items-center justify-start overflow-hidden rounded-full px-5 py-3 font-mono font-bold'
           >
             <span className='absolute left-0 top-0 h-32 w-32 translate-x-12 -translate-y-2 rotate-45 bg-gray-300 opacity-[3%] dark:bg-white'></span>
@@ -96,6 +91,7 @@ const Home = (): JSX.Element => {
         <Link href='mailto:yoavhevroni1@gmail.com'>
           <a
             target='_blank'
+            aria-label='mail'
             className='group relative  inline-flex items-center justify-start overflow-hidden rounded-full px-5 py-3 font-mono font-bold'
           >
             <span className='absolute left-0 top-0 h-32 w-32 translate-x-12 -translate-y-2 rotate-45 bg-gray-300 opacity-[3%] dark:bg-white'></span>

@@ -73,12 +73,12 @@ const Projects = () => {
       {/* <div className='flex flex-col-reverse'> */}
       {/* className='flex flex-col items-center justify-center overflow-x-scroll
       sm:flex-row sm:p-12' */}
-      <section
+      <ul
         className='mx-auto flex  flex-col items-center justify-center
                     overflow-x-scroll rounded-xl p-12 sm:flex-row sm:justify-start sm:p-12'
       >
         {data?.map((project: ProjectType) => (
-          <div key={project.name}>
+          <li key={project.name}>
             <Card
               name={project.name}
               html_url={project.html_url}
@@ -89,9 +89,9 @@ const Projects = () => {
               setRepoName={setRepoName}
               homepage={project.homepage}
             />
-          </div>
+          </li>
         ))}
-      </section>
+      </ul>
       <div className=' flex justify-center'>
         {!isSmall && (
           <article className='shadow-3xl my-10 flex  min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
