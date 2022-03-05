@@ -38,7 +38,7 @@ const Home = (): JSX.Element => {
           </h1>
         </motion.div>
         <p className='hoverAnimation mt-20 font-mono'>
-          i'm Very comfortable working with JavaScript, HTML and CSS.
+          I’m very comfortable working with JavaScript, HTML and CSS.
         </p>
         <p className='hoverAnimation font-mono'>
           Building and maintaining web applications and dashboards using React
@@ -51,8 +51,8 @@ const Home = (): JSX.Element => {
           that puts UI/UX at the top of the list.
         </p>
         <p className='hoverAnimation font-mono'>
-          - My Stack is Mostly MongoDB with Mongoose, Node with Express, React
-          with Next and GraphQL with Apollo Client.
+          - My Stack is Mostly React with Next, MongoDB with Mongoose, Node with
+          Express, and GraphQL with Apollo Client.
         </p>
 
         <p className='hoverAnimation font-mono'>

@@ -101,19 +101,19 @@ function DropDown({
       </DropDownHeader>
 
       {isOpen && (
-        <DropDownListContainer>
-          <DropDownList>
-            {array.map((option) => (
-              <ListItem
-                style={{ background: option.color }}
-                key={option.name}
-                onClick={() => onOptionClicked(option)}
-              >
-                {option.name}
-              </ListItem>
-            ))}
-          </DropDownList>
-        </DropDownListContainer>
+        // <DropDownListContainer>
+        <DropDownList>
+          {array.map((option) => (
+            <ListItem
+              style={{ background: option.color }}
+              key={option.name}
+              onClick={() => onOptionClicked(option)}
+            >
+              {option.name}
+            </ListItem>
+          ))}
+        </DropDownList>
+        // </DropDownListContainer>
       )}
     </DropDownContainer>
   );

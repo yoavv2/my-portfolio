@@ -5,16 +5,20 @@ image: 'background-view.jpeg'
 date: '2022-03-02'
 ---
 
-#### The Structure
+It is well known that different browsers have a different default style for HTML elements.
+When we create an application, we want to be consistent in how the app appears.
+
+So I want to focus on the select element
+and show how we can build a custom **select** element in Reactjs that will look the same in all browsers.
+
+### The Structure
 
 ```jsx:DropDown-Structure
 <DropDownContainer>
   <DropDownHeader/>
-    <DropDownListContainer>
-      <DropDownList>
-          <ListItem/>
-      </DropDownList>
-    </DropDownListContainer>
+    <DropDownList>
+       <ListItem/>
+    </DropDownList>
 </DropDownContainer>
 ```
 
@@ -45,7 +49,6 @@ const DropDownHeader = styled.div`
   border-radius: 1em;
 `;
 
-const DropDownListContainer = styled.div``;
 
 const DropDownList = styled.ul`
   padding: 0;
