@@ -20,7 +20,7 @@ const Card = ({
          cursor-pointer flex-col rounded-3xl bg-yellow-100 p-6  transition-transform hover:-translate-y-5 
          focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-slate-800 dark:shadow-gray-700 '
         onClick={() => setRepoName(name)}
-        whileTap={{ rotateY: 180, scale: 0.75 }}
+        // whileTap={{ rotateY: 180, scale: 0.75 }}
       >
         <header className='mb-auto flex-grow'>
           <p className='text-sm text-[#7a7abc]'>
