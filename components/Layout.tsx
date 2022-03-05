@@ -14,7 +14,7 @@ const Layout = ({
   children,
   customMeta,
   size = 'max-w-6xl',
-  padding = 'sm:px-8',
+  padding = 'px-8',
 }: LayoutProps): JSX.Element => {
   return (
     <>
