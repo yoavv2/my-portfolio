@@ -1,6 +1,6 @@
-import { ProjectType } from '../types/project';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 const Card = ({
   name,
   html_url,
@@ -15,11 +15,12 @@ const Card = ({
     <>
       {/* bg-[#17141d]  */}
 
-      <article
+      <motion.article
         className='min-w-32 lex-col shadow-3xl hover:divide-x-84 relative clear-both flex h-[450px] w-96
          cursor-pointer flex-col rounded-3xl bg-yellow-100 p-6  transition-transform hover:-translate-y-5 
          focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-slate-800 dark:shadow-gray-700 '
         onClick={() => setRepoName(name)}
+        whileTap={{ rotateY: 180, scale: 0.75 }}
       >
         <header className='mb-auto flex-grow'>
           <p className='text-sm text-[#7a7abc]'>
@@ -94,7 +95,7 @@ const Card = ({
             </a>
           ))}
         </div>
-      </article>
+      </motion.article>
     </>
   );
 };

@@ -78,7 +78,7 @@ const Projects = () => {
 
       <ul
         className='mx-auto flex  flex-col items-center justify-center
-                    overflow-x-scroll rounded-xl p-12 sm:flex-row sm:justify-start sm:p-12'
+                    overflow-x-scroll rounded-xl  sm:flex-row sm:justify-start sm:p-12'
       >
         {data?.map((project: ProjectType) => (
           <li key={project.name}>
