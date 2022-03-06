@@ -11,7 +11,7 @@ function Navigation2() {
 
   return (
     <>
-      <ul className=' flex space-x-2 ' aria-label='navigation'>
+      <ul className=' relative flex space-x-2 ' aria-label='navigation'>
         <motion.li
           className='flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white'
           whileHover={{
@@ -35,6 +35,10 @@ function Navigation2() {
           <ThemeSwitch />
         </motion.li>
         <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
+        {/* <label className='absolute bottom-full flex cursor-pointer items-center'>
+          {' '}
+          Home{' '}
+        </label> */}
         <motion.li
           className='relative flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white'
           whileHover={{
@@ -57,8 +61,12 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='/'>
-            <a className='relative p-5' aria-label='home'>
+            <a
+              className='relative flex flex-col items-center justify-center p-5 text-center'
+              aria-label='home'
+            >
               <Home />
+              <span className='text-[.5em]'>Home</span>
             </a>
           </Link>
 
@@ -92,8 +100,12 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='/blog'>
-            <a className='p-5' aria-label='blog'>
+            <a
+              className='relative flex flex-col items-center justify-center p-5 text-center'
+              aria-label='blog'
+            >
               <Blog />
+              <span className='text-[.5em]'>Blog</span>
             </a>
           </Link>
           {pathname === '/blog' && (
@@ -122,8 +134,12 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='/projects'>
-            <a className='p-5' aria-label='projects'>
+            <a
+              className='relative flex flex-col items-center justify-center p-5 text-center'
+              aria-label='projects'
+            >
               <Projects />
+              <span className='text-[.5em]'>Projects</span>
             </a>
           </Link>
           {pathname === '/projects' && (
@@ -158,8 +174,13 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='mailto:yoavhevroni1@gmail.com'>
-            <a className='p-5' target='_blank' aria-label='mail'>
+            <a
+              className='relative flex flex-col items-center justify-center p-5 text-center'
+              target='_blank'
+              aria-label='mail'
+            >
               <Mail />
+              <span className='text-[.5em]'>Mail</span>
             </a>
           </Link>
         </motion.li>
@@ -185,8 +206,13 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='https://github.com/yoavv2'>
-            <a className='p-5' target='_blank' aria-label='github'>
+            <a
+              className='relative flex flex-col items-center justify-center p-5 text-center'
+              target='_blank'
+              aria-label='github'
+            >
               <Github />
+              <span className='text-[.5em]'>Github</span>
             </a>
           </Link>
         </motion.li>
@@ -212,8 +238,13 @@ function Navigation2() {
           style={{ borderRadius: '20%' }}
         >
           <Link href='https://www.linkedin.com/in/yoavhevroni/'>
-            <a className='p-5' target='_blank' aria-label='linkedin'>
+            <a
+              className='relative flex flex-col items-center justify-center p-5 text-center'
+              target='_blank'
+              aria-label='linkedin'
+            >
               <LinkedIn />
+              <span className='text-[.5em]'>LinkedIn</span>
             </a>
           </Link>
         </motion.li>
