@@ -32,7 +32,7 @@ function Navigation2() {
             boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
           }}
         >
-          <span className='p-5 '>
+          <span className='p-5'>
             <ThemeSwitch />
           </span>
         </motion.li>
@@ -68,7 +68,7 @@ function Navigation2() {
               aria-label='home'
             >
               <Home />
-              <span className='text-[.5em]'>Home</span>
+              <span className='mt-1 text-[.5em]'>Home</span>
             </a>
           </Link>
 
@@ -107,7 +107,7 @@ function Navigation2() {
               aria-label='blog'
             >
               <Blog />
-              <span className='text-[.5em]'>Blog</span>
+              <span className='mt-1 text-[.5em]'>Blog</span>
             </a>
           </Link>
           {pathname === '/blog' && (
@@ -141,7 +141,7 @@ function Navigation2() {
               aria-label='projects'
             >
               <Projects />
-              <span className='text-[.5em]'>Projects</span>
+              <span className='mt-1 text-[.5em]'>Projects</span>
             </a>
           </Link>
           {pathname === '/projects' && (
@@ -182,7 +182,7 @@ function Navigation2() {
               aria-label='mail'
             >
               <Mail />
-              <span className='text-[.5em]'>Mail</span>
+              <span className='mt-1 text-[.5em]'>Mail</span>
             </a>
           </Link>
         </motion.li>
@@ -214,7 +214,7 @@ function Navigation2() {
               aria-label='github'
             >
               <Github />
-              <span className='text-[.5em]'>Github</span>
+              <span className='mt-1 text-[.5em]'>Github</span>
             </a>
           </Link>
         </motion.li>
@@ -246,7 +246,7 @@ function Navigation2() {
               aria-label='linkedin'
             >
               <LinkedIn />
-              <span className='text-[.5em]'>LinkedIn</span>
+              <span className='mt-1 text-[.5em]'>LinkedIn</span>
             </a>
           </Link>
         </motion.li>
