@@ -32,7 +32,9 @@ function Navigation2() {
             boxShadow: '10px 10px 0 rgba(0, 0, 2, 0)',
           }}
         >
-          <ThemeSwitch />
+          <span className='p-5 '>
+            <ThemeSwitch />
+          </span>
         </motion.li>
         <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
         {/* <label className='absolute bottom-full flex cursor-pointer items-center'>
