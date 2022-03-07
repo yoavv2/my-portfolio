@@ -1,6 +1,6 @@
 // import Link from 'next/link';
 import Link from 'next/link';
-import Layout from '../components/Layout';
+// import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
 
 const Home = (): JSX.Element => {
@@ -25,7 +25,8 @@ const Home = (): JSX.Element => {
   };
 
   return (
-    <Layout size='max-w-5xl'>
+    <>
+      {/* <Layout size='max-w-5xl'> */}
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
           <h1 className='hoverAnimation font-mono text-6xl'>Hi there!</h1>
@@ -105,7 +106,8 @@ const Home = (): JSX.Element => {
           </a>
         </Link>
       </div>
-    </Layout>
+      {/* </Layout> */}
+    </>
   );
 };
 

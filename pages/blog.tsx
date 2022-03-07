@@ -1,7 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import Layout from '../components/Layout';
+// import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
 import { motion } from 'framer-motion';
@@ -35,7 +35,8 @@ const blog = ({ posts }: IndexProps): JSX.Element => {
   });
 
   return (
-    <Layout size='max-w-5xl'>
+    <>
+      {/* <Layout size='max-w-5xl'> */}
       <h1 className=' hoverAnimation mb-12 text-center font-mono text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
         Hi,
       </h1>
@@ -80,7 +81,8 @@ const blog = ({ posts }: IndexProps): JSX.Element => {
           </motion.article>
         ))}
       </motion.div>
-    </Layout>
+      {/* </Layout> */}
+    </>
   );
 };
 

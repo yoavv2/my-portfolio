@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ProjectType } from '../types/project';
 import Card from '../components/Card';
 import { useEffect, useState } from 'react';
-import Layout from '../components/Layout';
+// import Layout from '../components/Layout';
 
 export async function fetcher<JSON = any>(
   input: RequestInfo,
@@ -39,7 +39,8 @@ const Projects = () => {
 
   if (error)
     return (
-      <Layout>
+      <>
+        {/* <Layout> */}
         <div className='flex  flex-col items-center'>
           Sorry something go wrong :( You can check out my projects on github
           instead{' '}
@@ -57,19 +58,23 @@ const Projects = () => {
             </a>
           </Link>
         </div>
-      </Layout>
+        {/* </Layout> */}
+      </>
     );
   if (!data)
     return (
-      <Layout>
+      <>
+        {/* <Layout> */}
         <p>Loading...</p>
-      </Layout>
+        {/* </Layout> */}
+      </>
     );
 
   data?.sort((a: any, b: any) => (a.created_at > b.created_at ? -1 : 1));
 
   return (
-    <Layout size='max-w-screen-2xl' padding='px-0'>
+    <>
+      {/* <Layout size='max-w-screen-2xl' padding='px-0'> */}
       {/* <div className='flex flex-col-reverse'> */}
       {/* className='flex flex-col items-center justify-center overflow-x-scroll
       sm:flex-row sm:p-12' */}
@@ -108,7 +113,8 @@ const Projects = () => {
 
         {/* </div> */}
       </div>
-    </Layout>
+      {/* </Layout> */}
+    </>
   );
 };
 
