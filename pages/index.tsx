@@ -1,7 +1,14 @@
-// import Link from 'next/link';
+
 import Link from 'next/link';
-// import Layout from '../components/Layout';
+
 import { motion } from 'framer-motion';
+import { NextSeo } from 'next-seo';
+
+const url = 'https://site-yoavv2.vercel.app/';
+const title = "Yoav's Portfolio";
+const description = 'Yoav Hevroni Portfolio';
+// const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
+
 
 const Home = (): JSX.Element => {
   const container = {
@@ -26,7 +33,20 @@ const Home = (): JSX.Element => {
 
   return (
     <>
-      {/* <Layout size='max-w-5xl'> */}
+    <NextSeo
+      title={title}
+      description={description}
+      canonical={url}
+      openGraph={{
+        url,
+        title,
+        description,
+        // images: [image],
+        site_name: 'Yoav Hevroni Portfolio',
+      }}
+
+
+    
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
           <h1 className=' font-mono text-6xl'>Hi there!</h1>
@@ -48,15 +68,16 @@ const Home = (): JSX.Element => {
           <br />- My Stack is Mostly React with Next, MongoDB with Mongoose,
           Node with Express and
           <br />
-          Im Experienced with Typescript, GraphQL with Apollo, firebase.
+          {` `} Im Experienced with Typescript, GraphQL with Apollo, firebase.
           <br />- B.Sc. in Mathematics and Computer Science.
         </p>
 
-        <h2 className='hoverAnimation my-10 font-mono'>
-          Here's how you can contact me!
-        </h2>
+        <h2 className=' my-10 font-mono'>Here's how you can contact me!</h2>
       </motion.div>
-      <div className=' mb-20 flex flex-col items-center justify-center space-y-2  sm:flex-row sm:items-start sm:justify-start sm:space-x-2 sm:space-y-0'>
+      <div
+        // className=' mb-20 flex flex-col items-center justify-center space-y-2  border-2 sm:flex-row sm:items-start sm:justify-start sm:space-x-2 sm:space-y-0'
+        className='mb-20 flex  space-x-2 text-sm sm:text-base'
+      >
         <Link href='https://www.linkedin.com/in/yoavhevroni/'>
           <a
             target='_blank'
@@ -102,7 +123,7 @@ const Home = (): JSX.Element => {
           </a>
         </Link>
       </div>
-      {/* </Layout> */}
+ 
     </>
   );
 };

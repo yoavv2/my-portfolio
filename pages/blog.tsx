@@ -5,10 +5,15 @@ import Link from 'next/link';
 import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
 import { motion } from 'framer-motion';
-
+import { NextSeo } from 'next-seo';
 type IndexProps = {
   posts: PostType[];
 };
+
+const url = 'https://site-yoavv2.vercel.app/blog';
+const title = "Yoav's Blog";
+const description = 'Yoav Hevroni Blog';
+// const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
 
 const blog = ({ posts }: IndexProps): JSX.Element => {
   const container = {
@@ -36,6 +41,19 @@ const blog = ({ posts }: IndexProps): JSX.Element => {
 
   return (
     <>
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={url}
+        openGraph={{
+          url,
+          title,
+          description,
+          // images: [image],
+          site_name: 'Yoav Hevroni Blog',
+        }}
+      />
+
       {/* <Layout size='max-w-5xl'> */}
       <motion.div
         variants={container}

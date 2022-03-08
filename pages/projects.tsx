@@ -5,7 +5,14 @@ import Link from 'next/link';
 import { ProjectType } from '../types/project';
 import Card from '../components/Card';
 import { useEffect, useState } from 'react';
+
+import { NextSeo } from 'next-seo';
 // import Layout from '../components/Layout';
+
+const url = 'https://site-yoavv2.vercel.app/';
+const title = "Yoav's Portfolio";
+const description = 'Projects and Experiences';
+// const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
 
 export async function fetcher<JSON = any>(
   input: RequestInfo,
@@ -40,6 +47,18 @@ const Projects = () => {
   if (error)
     return (
       <>
+        <NextSeo
+          title={title}
+          description={description}
+          canonical={url}
+          openGraph={{
+            url,
+            title,
+            description,
+            // images: [image],
+            site_name: 'Yoav Hevroni Portfolio',
+          }}
+        />
         {/* <Layout> */}
         <div className='flex  flex-col items-center'>
           Sorry something go wrong :( You can check out my projects on github
