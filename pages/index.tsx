@@ -1,14 +1,13 @@
-
+// import Link from 'next/link';
 import Link from 'next/link';
-
+// import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = "Yoav's Portfolio";
 const description = 'Yoav Hevroni Portfolio';
-// const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
-
+const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
 
 const Home = (): JSX.Element => {
   const container = {
@@ -33,20 +32,19 @@ const Home = (): JSX.Element => {
 
   return (
     <>
-    <NextSeo
-      title={title}
-      description={description}
-      canonical={url}
-      openGraph={{
-        url,
-        title,
-        description,
-        // images: [image],
-        site_name: 'Yoav Hevroni Portfolio',
-      }}
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={url}
+        openGraph={{
+          url,
+          title,
+          description,
+          // images: [image],
+          site_name: 'Yoav Hevroni Portfolio',
+        }}
+      />
 
-
-    
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
           <h1 className=' font-mono text-6xl'>Hi there!</h1>
@@ -123,7 +121,6 @@ const Home = (): JSX.Element => {
           </a>
         </Link>
       </div>
- 
     </>
   );
 };
