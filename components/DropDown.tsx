@@ -101,7 +101,6 @@ function DropDown({
       </DropDownHeader>
 
       {isOpen && (
-        // <DropDownListContainer>
         <DropDownList>
           {array.map((option) => (
             <ListItem
@@ -113,7 +112,6 @@ function DropDown({
             </ListItem>
           ))}
         </DropDownList>
-        // </DropDownListContainer>
       )}
     </DropDownContainer>
   );

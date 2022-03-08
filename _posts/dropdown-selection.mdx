@@ -1,7 +1,7 @@
 ---
 title: How to build A Selection menu without using built in selection HTML tag
 description: I created a tutorial on how to build a selction menu using Styled-compnents
-image: 'background-view.jpeg'
+image: 'dropdown.image.jpeg'
 date: '2022-03-02'
 ---
 
@@ -83,6 +83,119 @@ const ListItem = styled.li`
 
 ```
 
+### The States
+
+We need 2 States :
+
+1. a boolean state for the Opening/Closing Menu.
+2. a State that will hold an object with [name] and [Color]
+
+```jsx:states
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState({
+    name: '',
+    color: 'blue',
+  });
+
+```
+
+Now we need to add an onClick event on the DropDownHeader that will toggol the isOpen state
+
+and we want to show on the header the selectedOption:
+
+```jsx:toggle-function
+  const toggling = () => setIsOpen(!isOpen);
+
+   <DropDownHeader
+       onClick={toggling}
+  >
+    {selectedOption.name || 'Choose'}
+   </DropDownHeader>
+
+
+```
+
+now we want to show all the option that we have, so inside the DropDownList we will map all the ListItems we have :
+
+```jsx
+<DropDownList>
+  {array.map((option) => (
+    <ListItem style={{ background: option.color }} key={option.name}>
+      {option.name}
+    </ListItem>
+  ))}
+</DropDownList>
+```
+
+and for the select option we will add an event on the listitem
+
+```jsx
+const onOptionClicked = (value) => {
+  setSelectedOption(value);
+  setIsOpen(false);
+};
+<ListItem
+  style={{ background: option.color }}
+  key={option.name}
+  onClick={() => onOptionClicked(option)}
+>
+  {option.name}
+</ListItem>;
+```
+
+and thats it.
+
+Full code:
+
+```jsx:DropDown.jsx
+function DropDown({
+  array = [
+    { name: 'Apple', color: 'red' },
+    { name: 'Orange', color: 'orange' },
+    { name: 'banana', color: 'yellow' },
+    { name: 'Mango', color: 'green' },
+  ],
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggling = () => setIsOpen(!isOpen);
+  const [selectedOption, setSelectedOption] = useState({
+    name: '',
+    color: 'blue',
+  });
+
+  const onOptionClicked = (value) => {
+    setSelectedOption(value);
+    setIsOpen(false);
+  };
+  return (
+    <DropDownContainer>
+      <DropDownHeader
+        onClick={toggling}
+        style={{
+          background: selectedOption.color ? selectedOption.color : '#fff',
+        }}
+      >
+        {selectedOption.name || 'Choose'}
+      </DropDownHeader>
+
+      {isOpen && (
+        <DropDownList>
+          {array.map((option) => (
+            <ListItem
+              style={{ background: option.color }}
+              key={option.name}
+              onClick={() => onOptionClicked(option)}
+            >
+              {option.name}
+            </ListItem>
+          ))}
+        </DropDownList>
+      )}
+    </DropDownContainer>
+  );
+}
+```
+
 <div
   style={{
     height: '40em',
@@ -92,5 +205,3 @@ const ListItem = styled.li`
 >
   <DropDown />
 </div>
-
-
