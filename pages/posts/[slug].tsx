@@ -65,7 +65,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
         </Link>
         .
       </h2>
-      <article className='sm:ml-32'>
+      <article className='border-l-2 border-dotted pl-2 sm:ml-32'>
         <svg
           className={`w-16s fixed top-5 right-5  z-50 h-16 md:top-10 md:right-10 md:h-20 md:w-20 
           
@@ -84,7 +84,6 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
               translateX: 5,
               translateY: 5,
               scaleX: -1, // Reverse direction of line animation
-             
             }}
           />
           <motion.path

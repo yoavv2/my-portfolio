@@ -29,16 +29,12 @@ const Home = (): JSX.Element => {
       {/* <Layout size='max-w-5xl'> */}
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
-          <h1 className='hoverAnimation font-mono text-6xl'>Hi there!</h1>
+          <h1 className=' font-mono text-6xl'>Hi there!</h1>
 
-          <h1 className='hoverAnimation font-mono text-5xl'>
-            My name is Yoav Hevroni
-          </h1>
-          <h1 className='hoverAnimation font-mono text-3xl'>
-            I’m a Front-End Developer.
-          </h1>
+          <h2 className=' font-mono text-5xl'>My name is Yoav Hevroni</h2>
+          <h3 className=' font-mono text-3xl'>I’m a Front-End Developer.</h3>
         </motion.div>
-        <p className='hoverAnimation mt-20 font-mono'>
+        <p className=' mt-20 font-mono'>
           I’m very comfortable working with JavaScript, HTML and CSS.
           <br />
           Building and maintaining web applications and dashboards using React
