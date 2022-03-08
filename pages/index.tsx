@@ -49,10 +49,8 @@ const Home = (): JSX.Element => {
         <motion.div variants={item}>
           <h1 className=' font-mono text-6xl'>Hi there!</h1>
 
-          <h2 className=' font-mono text-5xl'>My name is Yoav Hevroni</h2>
-          <h3 className=' mt-5 font-mono text-3xl'>
-            I’m a Front-End Developer.
-          </h3>
+          <h2 className=' mb-6 font-mono text-5xl'>My name is Yoav Hevroni</h2>
+          <h3 className='  font-mono text-3xl'>I’m a Front-End Developer.</h3>
         </motion.div>
         <p className=' mt-20 font-mono'>
           I’m very comfortable working with JavaScript, HTML and CSS.
