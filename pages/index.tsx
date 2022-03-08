@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 
 const url = 'https://site-yoavv2.vercel.app/';
-const title = "Yoav's Portfolio";
+const title = 'Yoav Hevroni';
 const description = 'Yoav Hevroni Portfolio';
 const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
 
