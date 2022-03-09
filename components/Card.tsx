@@ -1,6 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Rive from 'rive-react';
 const Card = ({
   name,
   html_url,
@@ -59,9 +60,13 @@ const Card = ({
 
         <div className='relative flex h-20 items-center '>
           <span className=' relative box-border flex flex-col items-center justify-center'>
-            <img
+            {/* <img
               className='filter-shadow-lg absolute bottom-4 block h-10 w-10 overflow-hidden rounded-full bg-white'
               src='./images/avatar.png'
+            /> */}
+            <Rive
+              src='/rive/avatar1.riv'
+              className='filter-shadow-lg absolute bottom-4 block h-10 w-10 overflow-hidden rounded-full bg-white'
             />
             {/* absolute -bottom-2 left-[10px] */}
             <svg

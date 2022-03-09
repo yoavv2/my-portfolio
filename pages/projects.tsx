@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ProjectType } from '../types/project';
 import Card from '../components/Card';
 import { useEffect, useState } from 'react';
-
+import Rive from 'rive-react';
 import { NextSeo } from 'next-seo';
 // import Layout from '../components/Layout';
 
@@ -83,9 +83,7 @@ const Projects = () => {
   if (!data)
     return (
       <>
-        {/* <Layout> */}
-        <p>Loading...</p>
-        {/* </Layout> */}
+        <Rive src='rive/finger_tapping.riv' className='mx-auto h-96 w-96' />
       </>
     );
 

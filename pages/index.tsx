@@ -2,6 +2,8 @@
 import Link from 'next/link';
 // import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
+import Rive, { useRive } from 'rive-react';
+
 import { NextSeo } from 'next-seo';
 
 const url = 'https://site-yoavv2.vercel.app/';
@@ -44,7 +46,11 @@ const Home = (): JSX.Element => {
           site_name: 'Yoav Hevroni Portfolio',
         }}
       />
-
+      {/* top-52 */}
+      <Rive
+        src='rive/marty.riv'
+        className='absolute top-8 right-14 h-32 w-28 lg:h-96 lg:w-96 2xl:left-36'
+      />
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
           <h1 className=' font-mono text-6xl'>Hi there!</h1>
@@ -72,6 +78,7 @@ const Home = (): JSX.Element => {
 
         <h2 className=' my-10 font-mono'>Here's how you can contact me!</h2>
       </motion.div>
+
       <div
         // className=' mb-20 flex flex-col items-center justify-center space-y-2  border-2 sm:flex-row sm:items-start sm:justify-start sm:space-x-2 sm:space-y-0'
         className='mb-20 flex  space-x-2 text-sm sm:text-base'

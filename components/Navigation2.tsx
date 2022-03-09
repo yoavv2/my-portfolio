@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import ThemeSwitch from './ThemeSwitch';
 import { Home, Blog, Projects, Github, LinkedIn, Mail } from './Icons';
+import Rive, { useRive } from 'rive-react';
 
 function Navigation2() {
   const router = useRouter();
@@ -103,11 +104,12 @@ function Navigation2() {
         >
           <Link href='/blog'>
             <a
-              className='relative flex flex-col items-center justify-center p-5 text-center'
+              className='relative flex flex-col items-center justify-start   text-center'
               aria-label='blog'
             >
-              <Blog />
-              <span className='mt-1 text-[.5em]'>Blog</span>
+              {/* mt-1 text-[.5em] */}
+              <Rive src='/rive/blog2.riv' className='mb-5 w-24' />
+              <span className=' absolute top-[90px] text-[.5em]'>Blog</span>
             </a>
           </Link>
           {pathname === '/blog' && (
