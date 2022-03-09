@@ -2,9 +2,11 @@
 import Link from 'next/link';
 // import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
-import Rive, { useRive } from 'rive-react';
+import { useRive, useStateMachineInput } from 'rive-react';
 
 import { NextSeo } from 'next-seo';
+import { useEffect } from 'react';
+
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = 'Yoav Hevroni';
@@ -31,6 +33,22 @@ const Home = (): JSX.Element => {
       opacity: 1,
     },
   };
+  const STATE_MACHINE_NAME = 'Animation1';
+  const { rive, RiveComponent } = useRive({
+    src: 'rive/marty.riv',
+    // animations: "Correct",
+    stateMachines: STATE_MACHINE_NAME,
+    autoplay: true,
+  });
+  // useStateMachineInput(rive, STATE_MACHINE_NAME);
+
+  const clickOnMarty = (): void => {
+    rive.play('Animation2');
+    setTimeout(() => {
+      console.log("hello")
+      rive.play('Animation1');
+    }, 5000);
+  };
 
   return (
     <>
@@ -47,8 +65,9 @@ const Home = (): JSX.Element => {
         }}
       />
       {/* top-52 */}
-      <Rive
-        src='rive/marty.riv'
+      <RiveComponent
+        // onClick={() => onLoad('Animation2')}
+        onClick={() => clickOnMarty()}
         className='absolute top-8 right-14 h-32 w-28 lg:h-96 lg:w-96 2xl:left-36'
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
