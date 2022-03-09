@@ -7,7 +7,6 @@ import { useRive, useStateMachineInput } from 'rive-react';
 import { NextSeo } from 'next-seo';
 import { useEffect } from 'react';
 
-
 const url = 'https://site-yoavv2.vercel.app/';
 const title = 'Yoav Hevroni';
 const description = 'Yoav Hevroni Portfolio';
@@ -45,7 +44,7 @@ const Home = (): JSX.Element => {
   const clickOnMarty = (): void => {
     rive.play('Animation2');
     setTimeout(() => {
-      console.log("hello")
+      console.log('hello');
       rive.play('Animation1');
     }, 5000);
   };
@@ -75,7 +74,7 @@ const Home = (): JSX.Element => {
           <h1 className=' font-mono text-6xl'>Hi there!</h1>
 
           <h2 className=' mb-6 font-mono text-5xl'>My name is Yoav Hevroni</h2>
-          <h3 className='  font-mono text-3xl'>I’m a Front-End Developer.</h3>
+          <h3 className='  font-mono text-3xl'>I’m a Full-stack Developer.</h3>
         </motion.div>
         <p className=' mt-20 font-mono'>
           I’m very comfortable working with JavaScript, HTML and CSS.
