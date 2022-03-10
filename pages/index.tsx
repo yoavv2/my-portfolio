@@ -83,7 +83,7 @@ const Home = (): JSX.Element => {
           or NextJS.
           <br />
           <br />
-          Looking to grow as a front-end developer in a company
+          Looking to grow as a full-stack / front-end developer in a company
           <br />
           that puts UI/UX at the top of the list.
           <br />
