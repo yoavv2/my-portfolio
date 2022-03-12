@@ -10,8 +10,6 @@ function Navigation2() {
   const router = useRouter();
   const { pathname } = router;
 
-
-    
   return (
     <>
       <ul className=' relative flex space-x-2 ' aria-label='navigation'>

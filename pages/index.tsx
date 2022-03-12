@@ -1,11 +1,9 @@
-// import Link from 'next/link';
 import Link from 'next/link';
-// import Layout from '../components/Layout';
+
 import { motion } from 'framer-motion';
 import { useRive, useStateMachineInput } from 'rive-react';
 
 import { NextSeo } from 'next-seo';
-import { useEffect } from 'react';
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = 'Yoav Hevroni';
@@ -67,16 +65,22 @@ const Home = (): JSX.Element => {
       <RiveComponent
         // onClick={() => onLoad('Animation2')}
         onClick={() => clickOnMarty()}
-        className='absolute top-8 right-14 h-32 w-28 lg:h-96 lg:w-96 2xl:left-36'
+        className='absolute top-28 right-0 h-32 w-28 lg:h-96 lg:w-96 2xl:left-36'
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
-          <h1 className=' font-mono text-6xl'>Hi there!</h1>
+          <h2 className=' font-mono text-5xl'>
+            Hi there! <br />
+            My name is
+          </h2>
 
-          <h2 className=' mb-6 font-mono text-5xl'>My name is Yoav Hevroni</h2>
+          <h1 className=' mb-6 font-mono text-6xl lg:text-7xl'>
+            {' '}
+            Yoav Hevroni
+          </h1>
           <h3 className='  font-mono text-3xl'>I’m a Full-stack Developer.</h3>
         </motion.div>
-        <p className=' mt-20 font-mono'>
+        <p className=' mt-20 font-mono lg:text-3xl'>
           I’m very comfortable working with JavaScript, HTML and CSS.
           <br />
           Building and maintaining web applications and dashboards using React
