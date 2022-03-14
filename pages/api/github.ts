@@ -45,7 +45,7 @@ export default async (req: any, res: Response) => {
     });
     const allRepos = await Promise.all(promises);
 
-    console.log(allRepos);
+ 
 
     res.status(200).json(allRepos);
   } catch (error) {
