@@ -7,7 +7,7 @@ import Card from '../components/Card';
 import { useEffect, useState } from 'react';
 import Rive from 'rive-react';
 import { NextSeo } from 'next-seo';
-// import Layout from '../components/Layout';
+import { useRive, useStateMachineInput } from 'rive-react';
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = "Yoav's Portfolio";
@@ -24,6 +24,14 @@ export async function fetcher<JSON = any>(
 
 const Projects = () => {
   const [isSmall, setIsSmall] = useState<boolean>(false);
+
+  const STATE_MACHINE_NAME = 'Demo Mode';
+  const { rive, RiveComponent } = useRive({
+    src: 'rive/marty_loading.riv',
+    // animations: "Correct",
+    stateMachines: STATE_MACHINE_NAME,
+    autoplay: true,
+  });
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -47,18 +55,6 @@ const Projects = () => {
   if (error)
     return (
       <>
-        <NextSeo
-          title={title}
-          description={description}
-          canonical={url}
-          openGraph={{
-            url,
-            title,
-            description,
-            // images: [image],
-            site_name: 'Yoav Hevroni Portfolio',
-          }}
-        />
         {/* <Layout> */}
         <div className='flex  flex-col items-center'>
           Sorry something go wrong :( You can check out my projects on github
@@ -80,10 +76,12 @@ const Projects = () => {
         {/* </Layout> */}
       </>
     );
+
   if (!data)
     return (
       <>
         <Rive src='rive/finger_tapping.riv' className='mx-auto h-96 w-96' />
+        {/* <RiveComponent className='mx-auto h-96 w-96' /> */}
       </>
     );
 
@@ -95,7 +93,18 @@ const Projects = () => {
       {/* <div className='flex flex-col-reverse'> */}
       {/* className='flex flex-col items-center justify-center overflow-x-scroll
       sm:flex-row sm:p-12' */}
-
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={url}
+        openGraph={{
+          url,
+          title,
+          description,
+          // images: [image],
+          site_name: 'Yoav Hevroni Portfolio',
+        }}
+      />
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
       <ul

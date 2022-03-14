@@ -65,7 +65,7 @@ const Home = (): JSX.Element => {
       <RiveComponent
         // onClick={() => onLoad('Animation2')}
         onClick={() => clickOnMarty()}
-        className='absolute top-28 right-0 h-32 w-28 cursor-pointer lg:h-96 lg:w-96 2xl:left-36'
+        className='3xl:left-36 absolute top-28 right-0 h-32 w-28 cursor-pointer sm:h-60 sm:w-60 lg:top-14 lg:h-96 lg:w-96'
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>

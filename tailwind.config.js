@@ -5,6 +5,10 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        sm: '750px',
+        '3xl': '1800px',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
