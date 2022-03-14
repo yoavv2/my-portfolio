@@ -1,5 +1,5 @@
-import { ProjectType } from '../../types/project';
-import express, { Request, Response } from 'express';
+// import { ProjectType } from '../../types/project';
+import { Response } from 'express';
 export default async (req: any, res: Response) => {
   const reposURL = 'https://api.github.com/users/yoavv2/repos';
 
@@ -44,6 +44,8 @@ export default async (req: any, res: Response) => {
       return repo;
     });
     const allRepos = await Promise.all(promises);
+
+    console.log(allRepos);
 
     res.status(200).json(allRepos);
   } catch (error) {

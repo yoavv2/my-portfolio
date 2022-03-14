@@ -7,7 +7,6 @@ import Card from '../components/Card';
 import { useEffect, useState } from 'react';
 import Rive from 'rive-react';
 import { NextSeo } from 'next-seo';
-import { useRive, useStateMachineInput } from 'rive-react';
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = "Yoav's Portfolio";
@@ -24,14 +23,6 @@ export async function fetcher<JSON = any>(
 
 const Projects = () => {
   const [isSmall, setIsSmall] = useState<boolean>(false);
-
-  const STATE_MACHINE_NAME = 'Demo Mode';
-  const { rive, RiveComponent } = useRive({
-    src: 'rive/marty_loading.riv',
-    // animations: "Correct",
-    stateMachines: STATE_MACHINE_NAME,
-    autoplay: true,
-  });
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -81,7 +72,6 @@ const Projects = () => {
     return (
       <>
         <Rive src='rive/finger_tapping.riv' className='mx-auto h-96 w-96' />
-        {/* <RiveComponent className='mx-auto h-96 w-96' /> */}
       </>
     );
 
