@@ -69,13 +69,47 @@ const Home = (): JSX.Element => {
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
-          <h2 className=' font-mono lg:text-5xl'>
-            console.log("Hello World"); <br />
-            My name is
-          </h2>
-
-          <h1 className='mb-6 font-mono text-4xl lg:text-7xl'> Yoav Hevroni</h1>
-          <h3 className='font-mono text-3xl'>I’m a Full-stack Developer.</h3>
+          <header>
+            {' '}
+            <h2 className=' font-mono lg:text-5xl'>
+              <span
+                style={{
+                  color: `#${Math.floor(Math.random() * 16777215).toString(
+                    16
+                  )}`,
+                }}
+              >
+                console
+              </span>
+              .
+              <span
+                style={{
+                  color: `#${Math.floor(Math.random() * 16777215).toString(
+                    16
+                  )}`,
+                }}
+              >
+                log
+              </span>
+              (
+              <span
+                style={{
+                  color: `#${Math.floor(Math.random() * 16777215).toString(
+                    16
+                  )}`,
+                }}
+              >
+                'Hello World'
+              </span>
+              ); <br />
+              My name is
+            </h2>
+            <h1 className='mb-6 font-mono text-4xl lg:text-7xl'>
+              {' '}
+              Yoav Hevroni
+            </h1>
+            <h3 className='font-mono text-3xl'>I’m a Full-stack Developer.</h3>
+          </header>
         </motion.div>
         <p className=' mt-20 font-mono text-2xl lg:text-3xl'>
           I’m very comfortable working with JavaScript, HTML and CSS.
