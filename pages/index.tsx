@@ -126,12 +126,12 @@ const Home = (): JSX.Element => {
           role='list'
           className='m-0 grid list-outside list-none grid-cols-1 gap-4 p-0 text-xl lg:text-2xl'
         >
-          <li className='flex justify-start gap-2  before:text-3xl before:content-["👉"]'>
+          <li className='flex justify-start gap-2 before:text-xl before:content-["👉"] before:lg:text-3xl'>
             My Stack is Mostly React with Next, MongoDB with Mongoose, Node with
             Express and Im Experienced with Typescript, GraphQL with Apollo,
             firebase.
           </li>
-          <li className='flex justify-start gap-2  before:text-3xl before:content-["👉"]'>
+          <li className='flex justify-start gap-2 before:text-xl before:content-["👉"] before:lg:text-3xl'>
             {' '}
             B.Sc. in Mathematics and Computer Science.
           </li>
