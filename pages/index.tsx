@@ -69,18 +69,15 @@ const Home = (): JSX.Element => {
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
-          <h2 className=' font-mono text-5xl'>
-            Hi there! <br />
+          <h2 className=' font-mono lg:text-5xl'>
+            console.log("Hello World"); <br />
             My name is
           </h2>
 
-          <h1 className=' mb-6 font-mono text-6xl lg:text-7xl'>
-            {' '}
-            Yoav Hevroni
-          </h1>
-          <h3 className='  font-mono text-3xl'>I’m a Full-stack Developer.</h3>
+          <h1 className='mb-6 font-mono text-4xl lg:text-7xl'> Yoav Hevroni</h1>
+          <h3 className='font-mono text-3xl'>I’m a Full-stack Developer.</h3>
         </motion.div>
-        <p className=' mt-20 font-mono lg:text-3xl'>
+        <p className=' mt-20 font-mono text-2xl lg:text-3xl'>
           I’m very comfortable working with JavaScript, HTML and CSS.
           <br />
           Building and maintaining web applications and dashboards using React
@@ -90,19 +87,27 @@ const Home = (): JSX.Element => {
           Looking to grow as a full-stack / front-end developer in a company
           <br />
           that puts UI/UX at the top of the list.
-          <br />
-          <br />- My Stack is Mostly React with Next, MongoDB with Mongoose,
-          Node with Express and
-          <br />
-          {` `} Im Experienced with Typescript, GraphQL with Apollo, firebase.
-          <br />- B.Sc. in Mathematics and Computer Science.
         </p>
+        <ul
+          role='list'
+          className='m-0 grid list-outside list-none grid-cols-1 gap-4 p-0 text-xl lg:text-2xl'
+        >
+          <li className='flex justify-start gap-2  before:text-3xl before:content-["👉"]'>
+            My Stack is Mostly React with Next, MongoDB with Mongoose, Node with
+            Express and Im Experienced with Typescript, GraphQL with Apollo,
+            firebase.
+          </li>
+          <li className='flex justify-start gap-2  before:text-3xl before:content-["👉"]'>
+            {' '}
+            B.Sc. in Mathematics and Computer Science.
+          </li>
+        </ul>
 
         <h2 className=' my-10 font-mono'>Here's how you can contact me!</h2>
       </motion.div>
 
       <div
-        // className=' mb-20 flex flex-col items-center justify-center space-y-2  border-2 sm:flex-row sm:items-start sm:justify-start sm:space-x-2 sm:space-y-0'
+        // className=' mb-20 flex flex-col items-center justisfy-center space-y-2  border-2 sm:flex-row sm:items-start sm:justify-start sm:space-x-2 sm:space-y-0'
         className='mb-20 flex  space-x-2 text-sm sm:text-base'
       >
         <Link href='https://www.linkedin.com/in/yoavhevroni/'>
