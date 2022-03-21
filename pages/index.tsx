@@ -71,7 +71,7 @@ const Home = (): JSX.Element => {
         <motion.div variants={item}>
           <header>
             {' '}
-            <h2 className=' font-mono lg:text-5xl'>
+            <h2 className=' font-mono font-extrabold lg:text-5xl'>
               <span
                 style={{
                   color: `#${Math.floor(Math.random() * 16777215).toString(
