@@ -22,8 +22,10 @@ const blog = ({ posts }: IndexProps): JSX.Element => {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.5,
-        staggerChildren: 0.2,
+        delayChildren: 1,
+        staggerChildren: 0.5,
+        // staggerDirection: -1,
+        ease: 'easeOut',
       },
     },
   };

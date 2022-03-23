@@ -17,8 +17,10 @@ const Home = (): JSX.Element => {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
+        delayChildren: 1,
+        staggerChildren: 0.5,
+        // staggerDirection: -1,
+        ease: 'easeOut',
       },
     },
   };
@@ -28,6 +30,13 @@ const Home = (): JSX.Element => {
     visible: {
       y: 0,
       opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+
+        delay: 0.2,
+      },
     },
   };
   const STATE_MACHINE_NAME = 'Animation1';
