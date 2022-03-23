@@ -125,15 +125,12 @@ const Projects = () => {
       />
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
-      <motion.ul
-        initial='hidden'
-        animate='visible'
-        variants={container}
+      <ul
         className='mx-auto flex  flex-col items-center justify-center
                     overflow-x-scroll rounded-xl  sm:flex-row sm:justify-start sm:p-12'
       >
         {data?.map((project: ProjectType) => (
-          <motion.li variants={item} key={project.name}>
+          <li key={project.name}>
             <Card
               name={project.name}
               html_url={project.html_url}
@@ -144,9 +141,9 @@ const Projects = () => {
               setRepoName={setRepoName}
               homepage={project.homepage}
             />
-          </motion.li>
+          </li>
         ))}
-      </motion.ul>
+      </ul>
       <div className=' flex justify-center'>
         {!isSmall && (
           <article className='shadow-3xl my-10 flex  min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
