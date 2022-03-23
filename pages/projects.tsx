@@ -7,7 +7,7 @@ import Card from '../components/Card';
 import { useEffect, useState } from 'react';
 import Rive from 'rive-react';
 import { NextSeo } from 'next-seo';
-import { motion } from 'framer-motion';
+
 const url = 'https://site-yoavv2.vercel.app/';
 const title = "Yoav's Portfolio";
 const description = 'Projects and Experiences';
@@ -20,34 +20,6 @@ export async function fetcher<JSON = any>(
   const res = await fetch(input, init);
   return res.json();
 }
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 1,
-      staggerChildren: 0.5,
-      // staggerDirection: -1,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-
-      delay: 0.2,
-    },
-  },
-};
 
 const Projects = () => {
   const [isSmall, setIsSmall] = useState<boolean>(false);
@@ -74,7 +46,6 @@ const Projects = () => {
   if (error)
     return (
       <>
-        {/* <Layout> */}
         <div className='flex  flex-col items-center'>
           Sorry something go wrong :( You can check out my projects on github
           instead{' '}
@@ -92,7 +63,6 @@ const Projects = () => {
             </a>
           </Link>
         </div>
-        {/* </Layout> */}
       </>
     );
 
@@ -107,10 +77,6 @@ const Projects = () => {
 
   return (
     <>
-      {/* <Layout size='max-w-screen-2xl' padding='px-0'> */}
-      {/* <div className='flex flex-col-reverse'> */}
-      {/* className='flex flex-col items-center justify-center overflow-x-scroll
-      sm:flex-row sm:p-12' */}
       <NextSeo
         title={title}
         description={description}
@@ -154,10 +120,7 @@ const Projects = () => {
             </ReactMarkdown>
           </article>
         )}
-
-        {/* </div> */}
       </div>
-      {/* </Layout> */}
     </>
   );
 };
