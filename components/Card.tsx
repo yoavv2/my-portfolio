@@ -12,6 +12,9 @@ const Card = ({
   setRepoName,
   homepage,
 }: any) => {
+  const getColor = (): string => {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  };
   return (
     <>
       {/* bg-[#17141d]  */}
@@ -91,9 +94,7 @@ const Card = ({
               href='#'
               key={lang}
               style={{
-                backgroundColor: `#${Math.floor(
-                  Math.random() * 16777215
-                ).toString(16)}`,
+                backgroundColor: `${getColor()}`,
               }}
             >
               {lang}

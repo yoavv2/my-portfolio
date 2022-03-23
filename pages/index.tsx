@@ -38,6 +38,9 @@ const Home = (): JSX.Element => {
       },
     },
   };
+  const getColor = (): string => {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  };
   const STATE_MACHINE_NAME = 'Animation1';
   const { rive, RiveComponent } = useRive({
     src: 'rive/marty.riv',
@@ -86,9 +89,7 @@ const Home = (): JSX.Element => {
             <h2 className=' font-mono font-extrabold lg:text-5xl'>
               <span
                 style={{
-                  color: `#${Math.floor(Math.random() * 16777215).toString(
-                    16
-                  )}`,
+                  color: `${getColor()}`,
                 }}
               >
                 console
@@ -96,9 +97,7 @@ const Home = (): JSX.Element => {
               .
               <span
                 style={{
-                  color: `#${Math.floor(Math.random() * 16777215).toString(
-                    16
-                  )}`,
+                  color: `${getColor()}`,
                 }}
               >
                 log
@@ -106,9 +105,7 @@ const Home = (): JSX.Element => {
               (
               <span
                 style={{
-                  color: `#${Math.floor(Math.random() * 16777215).toString(
-                    16
-                  )}`,
+                  color: `${getColor()}`,
                 }}
               >
                 'Hello World'
