@@ -34,8 +34,7 @@ const Home = (): JSX.Element => {
         type: 'spring',
         stiffness: 100,
         damping: 15,
-
-        delay: 0.2,
+        delay: 0.4,
       },
     },
   };
@@ -77,7 +76,11 @@ const Home = (): JSX.Element => {
         className='3xl:left-36 absolute top-28 right-0 h-32 w-28 cursor-pointer sm:h-60 sm:w-60 lg:top-14 lg:h-96 lg:w-96'
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
-        <motion.div variants={item}>
+        <motion.div
+          // initial='hidden'
+          //  animate='visible'
+          variants={item}
+        >
           <header>
             {' '}
             <h2 className=' font-mono font-extrabold lg:text-5xl'>

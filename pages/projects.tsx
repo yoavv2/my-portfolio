@@ -7,7 +7,7 @@ import Card from '../components/Card';
 import { useEffect, useState } from 'react';
 import Rive from 'rive-react';
 import { NextSeo } from 'next-seo';
-
+import { motion } from 'framer-motion';
 const url = 'https://site-yoavv2.vercel.app/';
 const title = "Yoav's Portfolio";
 const description = 'Projects and Experiences';
@@ -20,6 +20,34 @@ export async function fetcher<JSON = any>(
   const res = await fetch(input, init);
   return res.json();
 }
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 1,
+      staggerChildren: 0.5,
+      // staggerDirection: -1,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 15,
+
+      delay: 0.2,
+    },
+  },
+};
 
 const Projects = () => {
   const [isSmall, setIsSmall] = useState<boolean>(false);
@@ -97,12 +125,15 @@ const Projects = () => {
       />
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
-      <ul
+      <motion.ul
+        initial='hidden'
+        animate='visible'
+        variants={container}
         className='mx-auto flex  flex-col items-center justify-center
                     overflow-x-scroll rounded-xl  sm:flex-row sm:justify-start sm:p-12'
       >
         {data?.map((project: ProjectType) => (
-          <li key={project.name}>
+          <motion.li variants={item} key={project.name}>
             <Card
               name={project.name}
               html_url={project.html_url}
@@ -113,9 +144,9 @@ const Projects = () => {
               setRepoName={setRepoName}
               homepage={project.homepage}
             />
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
       <div className=' flex justify-center'>
         {!isSmall && (
           <article className='shadow-3xl my-10 flex  min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
