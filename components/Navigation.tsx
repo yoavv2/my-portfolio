@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 const Navigation = (): JSX.Element => {
   const router = useRouter();
@@ -47,7 +46,7 @@ const Navigation = (): JSX.Element => {
         <a
           className={` font-semibold  ${
             pathname === '/projects'
-              ? 'bg-gradient-to-r from-orange-400  to-red-700 bg-clip-text fill-transparent font-extrabold text-stone-900 text-transparent'
+              ? 'bg-gradient-to-r from-orange-400 to-red-700 bg-clip-text fill-transparent font-extrabold text-stone-900 text-transparent'
               : 'text-gray-900 dark:text-white'
           } px-6 py-4`}
         >

@@ -1,9 +1,7 @@
 import Link from 'next/link';
-
-import { motion } from 'framer-motion';
-import { useRive, useStateMachineInput } from 'rive-react';
-
 import { NextSeo } from 'next-seo';
+import { useRive } from 'rive-react';
+import { motion } from 'framer-motion';
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = 'Yoav Hevroni';
@@ -74,18 +72,12 @@ const Home = (): JSX.Element => {
       />
       {/* top-52 */}
       <RiveComponent
-        // onClick={() => onLoad('Animation2')}
         onClick={() => clickOnMarty()}
         className='3xl:left-36 absolute top-28 right-0 h-32 w-28 cursor-pointer sm:h-60 sm:w-60 lg:top-14 lg:h-96 lg:w-96'
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
-        <motion.div
-          // initial='hidden'
-          //  animate='visible'
-          variants={item}
-        >
+        <motion.div variants={item}>
           <header>
-            {' '}
             <h2 className=' font-mono font-extrabold lg:text-5xl'>
               <span
                 style={{
@@ -114,7 +106,6 @@ const Home = (): JSX.Element => {
               My name is
             </h2>
             <h1 className='mb-6 font-mono text-4xl lg:text-7xl'>
-              {' '}
               Yoav Hevroni
             </h1>
             <h3 className='font-mono text-3xl'>I’m a Full-stack Developer.</h3>
@@ -141,7 +132,6 @@ const Home = (): JSX.Element => {
             firebase.
           </li>
           <li className='flex justify-start gap-2 before:text-xl before:content-["👉"] before:lg:text-3xl'>
-            {' '}
             B.Sc. in Mathematics and Computer Science.
           </li>
         </ul>
@@ -150,7 +140,7 @@ const Home = (): JSX.Element => {
       </motion.div>
 
       <div
-        // className=' mb-20 flex flex-col items-center justisfy-center space-y-2  border-2 sm:flex-row sm:items-start sm:justify-start sm:space-x-2 sm:space-y-0'
+        // className=' mb-20 flex flex-col items-center justify-center space-y-2  border-2 sm:flex-row sm:items-start sm:justify-start sm:space-x-2 sm:space-y-0'
         className='mb-20 flex  space-x-2 text-sm sm:text-base'
       >
         <Link href='https://www.linkedin.com/in/yoavhevroni/'>

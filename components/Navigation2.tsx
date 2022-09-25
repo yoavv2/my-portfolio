@@ -1,10 +1,9 @@
 import Link from 'next/link';
-
+import Rive from 'rive-react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import ThemeSwitch from './ThemeSwitch';
-import { Home, Blog, Projects, Github, LinkedIn, Mail } from './Icons';
-import Rive, { useRive } from 'rive-react';
+import { Home, Projects, Github, LinkedIn, Mail } from './Icons';
 
 function Navigation2() {
   const router = useRouter();
