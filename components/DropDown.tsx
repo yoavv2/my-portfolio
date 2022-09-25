@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
+interface SelectedOption {
+  name: string;
+  color: string;
+}
+const initialOption = { name: '', color: '' };
+
 const DropDownContainer = styled.div`
-  width: 20em;
-  margin: 0 auto;
+  width: min(100% - rem, 70rem);
+  margin-inline: auto;
   padding: 3em;
   display: flex;
   flex-direction: column;
@@ -12,22 +18,19 @@ const DropDownContainer = styled.div`
 `;
 
 const DropDownHeader = styled.div`
-
   padding: 0.5em;
-  margin-bottom:1em
+  margin-bottom: 1em;
   color: black;
   font-weight: 500;
   font-size: 1.3rem;
   width: 10.5em;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   border: groove 6px #3faffa;
   border-radius: 1em;
+  cursor: pointer;
 `;
-
-const DropDownListContainer = styled.div``;
 
 const DropDownList = styled.ul`
   padding: 0;
@@ -59,36 +62,24 @@ const ListItem = styled.li`
     background: #3faffa;
   }
 `;
-interface DropDownProps {
-  options: string[];
-  onChange: (value: string) => void;
-  selectedOption?: SelectedOption;
-  placeholder?: string;
-}
-interface SelectedOption {
-  name: string;
-  color: string;
-}
 
-function DropDown({
-  array = [
+const DropDown = () => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [selectedOption, setSelectedOption] =
+    React.useState<SelectedOption>(initialOption);
+  const toggling = () => setIsOpen(!isOpen);
+
+  const array = [
     { name: 'Apple', color: 'red' },
     { name: 'Orange', color: 'orange' },
     { name: 'banana', color: 'yellow' },
     { name: 'Mango', color: 'green' },
-  ],
-}) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const toggling = (): void => setIsOpen(!isOpen);
-  const [selectedOption, setSelectedOption] = useState({
-    name: '',
-    color: 'blue',
-  });
-
+  ];
   const onOptionClicked = (value: SelectedOption) => {
     setSelectedOption(value);
     setIsOpen(false);
   };
+
   return (
     <DropDownContainer>
       <DropDownHeader
@@ -115,6 +106,6 @@ function DropDown({
       )}
     </DropDownContainer>
   );
-}
+};
 
 export default DropDown;

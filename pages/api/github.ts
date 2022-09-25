@@ -1,4 +1,3 @@
-// import { ProjectType } from '../../types/project';
 import { Response } from 'express';
 export default async (req: any, res: Response) => {
   const reposURL = 'https://api.github.com/users/yoavv2/repos';
