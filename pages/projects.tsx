@@ -22,7 +22,7 @@ export async function fetcher<JSON = any>(
 
 const errorComponent = () => (
   <div className='flex  flex-col items-center'>
-    Sorry something go wrong :( You can check out my projects on github instead{' '}
+    Sorry something go wrong :( You can check out my projects on github instead
     <Link href='https://github.com/yoavv2'>
       <a
         target='_blank'
@@ -41,6 +41,7 @@ const errorComponent = () => (
 
 const Projects = () => {
   const [isSmall, setIsSmall] = React.useState<boolean>(false);
+  const [repoName, setRepoName] = React.useState<string>('');
 
   React.useLayoutEffect(() => {
     window.addEventListener('resize', () => {
@@ -59,7 +60,6 @@ const Projects = () => {
     refreshInterval: 0,
     refreshWhenHidden: false,
   });
-  const [repoName, setRepoName] = React.useState<string>('');
 
   if (error) {
     return errorComponent();
@@ -116,7 +116,7 @@ const Projects = () => {
           ))}
       </ul>
       <div className=' flex justify-center'>
-        {!isSmall && data.length > 0 ? (
+        {!isSmall && !!repoName.length && data.length > 0 ? (
           <article className='shadow-3xl my-10 flex  min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
             {/* find the repository readme by the name  */}
             <ReactMarkdown>
