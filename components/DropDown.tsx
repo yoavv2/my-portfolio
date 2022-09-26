@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import Styled from 'styled-components';
 
 interface SelectedOption {
   name: string;
@@ -7,7 +7,7 @@ interface SelectedOption {
 }
 const initialOption = { name: '', color: '' };
 
-const DropDownContainer = styled.div`
+const DropDownContainer = Styled.div`
   width: min(100% - rem, 70rem);
   margin-inline: auto;
   padding: 3em;
@@ -17,7 +17,7 @@ const DropDownContainer = styled.div`
   align-items: center;
 `;
 
-const DropDownHeader = styled.div`
+const DropDownHeader = Styled.div`
   padding: 0.5em;
   margin-bottom: 1em;
   color: black;
@@ -32,7 +32,7 @@ const DropDownHeader = styled.div`
   cursor: pointer;
 `;
 
-const DropDownList = styled.ul`
+const DropDownList = Styled.ul`
   padding: 0;
   margin: 0;
   border: groove 6px #3faffa;
@@ -46,7 +46,7 @@ const DropDownList = styled.ul`
     padding-top: 0.8em;
   }
 `;
-const ListItem = styled.li`
+const ListItem = Styled.li`
   color: black;
   list-style: none;
   width: 10em;

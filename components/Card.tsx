@@ -1,10 +1,8 @@
-import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import Rive from 'rive-react';
+import { format, parseISO } from 'date-fns';
 import { IRepository } from '../types/project.types';
 import { getColor } from '../utils/color.util';
-
-
 
 const Card = ({
   name,

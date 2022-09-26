@@ -1,21 +1,21 @@
-import { format, parseISO } from 'date-fns';
-import { GetStaticProps } from 'next';
 import Link from 'next/link';
-// import Layout from '../components/Layout';
-import { getAllPosts } from '../lib/api';
-import { IPostType } from '../types/post.types';
-import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
+import { GetStaticProps } from 'next';
+import { motion } from 'framer-motion';
+import { format, parseISO } from 'date-fns';
+import { IPostType } from '../types/post.types';
+import { getAllPosts } from '../lib/api';
+
 type IndexProps = {
   posts: IPostType[];
 };
 
-const url = 'https://site-yoavv2.vercel.app/blog';
+const url = 'https://yoavhevroni.me/blog';
 const title = "Yoav's Blog";
 const description = 'Yoav Hevroni Blog';
 // const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
 
-const blog = ({ posts }: IndexProps): JSX.Element => {
+const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {

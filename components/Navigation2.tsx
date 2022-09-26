@@ -3,8 +3,8 @@ import Rive from 'rive-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import ThemeSwitch from './ThemeSwitch';
-import { Home, Projects, Github, LinkedIn, Mail } from './Icons';
 import MotionListItem from './MotionListItem';
+import { Home, Projects, Github, LinkedIn, Mail } from './Icons';
 
 function Navigation2() {
   const router = useRouter();
