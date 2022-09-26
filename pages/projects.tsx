@@ -20,8 +20,8 @@ export async function fetcher<JSON = any>(
   return res.json();
 }
 
-const errorComponent = () => (
-  <div className='flex  flex-col items-center'>
+const showSomethingWentWrong = () => (
+  <div className='flex flex-col items-center'>
     Sorry something go wrong :( You can check out my projects on github instead
     <Link href='https://github.com/yoavv2'>
       <a
@@ -62,7 +62,7 @@ const Projects = () => {
   });
 
   if (error) {
-    return errorComponent();
+    return showSomethingWentWrong();
   }
 
   if (!data)
@@ -124,7 +124,7 @@ const Projects = () => {
             </ReactMarkdown>
           </article>
         ) : (
-          errorComponent()
+          showSomethingWentWrong()
         )}
       </div>
     </>
