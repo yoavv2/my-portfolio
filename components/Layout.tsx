@@ -1,11 +1,11 @@
 import ThemeSwitch from './ThemeSwitch';
-import { MetaProps } from '../types/layout';
+import { IMetaProps } from '../types/layout.types';
 import Navigation2 from './Navigation2';
 import { motion } from 'framer-motion';
 
 type LayoutProps = {
   children: React.ReactNode;
-  customMeta?: MetaProps;
+  customMeta?: IMetaProps;
   size?: string;
   padding?: string;
 };

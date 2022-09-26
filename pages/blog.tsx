@@ -3,11 +3,11 @@ import { GetStaticProps } from 'next';
 import Link from 'next/link';
 // import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
-import { PostType } from '../types/post';
+import { IPostType } from '../types/post.types';
 import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 type IndexProps = {
-  posts: PostType[];
+  posts: IPostType[];
 };
 
 const url = 'https://site-yoavv2.vercel.app/blog';

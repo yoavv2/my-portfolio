@@ -5,7 +5,7 @@ import Rive from 'rive-react';
 import { NextSeo } from 'next-seo';
 import Card from '../components/Card';
 import ReactMarkdown from 'react-markdown';
-import { ProjectType } from '../types/project';
+import { IProject } from '../types/project.types';
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = "Yoav's Portfolio";
@@ -54,7 +54,7 @@ const Projects = () => {
     // variable and projects is assigned to data.projects which is an array of projects type (ProjectType)
 
     error,
-  } = useSWR<ProjectType[]>('/api/github', fetcher, {
+  } = useSWR<IProject[]>('/api/github', fetcher, {
     revalidateOnFocus: false,
     refreshInterval: 0,
     refreshWhenHidden: false,
@@ -97,7 +97,7 @@ const Projects = () => {
                     overflow-x-scroll rounded-xl  sm:flex-row sm:justify-start sm:p-12'
       >
         {!!data.length &&
-          data?.map((project: ProjectType) => (
+          data?.map((project: IProject) => (
             <li key={project.name}>
               <Card
                 name={project.name}
@@ -113,18 +113,15 @@ const Projects = () => {
           ))}
       </ul>
       <div className=' flex justify-center'>
-        {!isSmall && (
+        {!isSmall && data.length > 0 ? (
           <article className='shadow-3xl my-10 flex  min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
             {/* find the repository readme by the name  */}
-
-            {data.length > 0 ? (
-              <ReactMarkdown>
-                {data?.find((repo: any) => repo.name == repoName)?.readme}
-              </ReactMarkdown>
-            ) : (
-              errorComponent()
-            )}
+            <ReactMarkdown>
+              {data?.find((repo: any) => repo.name == repoName)?.readme}
+            </ReactMarkdown>
           </article>
+        ) : (
+          errorComponent()
         )}
       </div>
     </>

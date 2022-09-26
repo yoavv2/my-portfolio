@@ -1,18 +1,10 @@
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import Rive from 'rive-react';
+import { IRepository } from '../types/project.types';
 import { getColor } from '../utils/color.util';
 
-interface IGitProjects {
-  name: string;
-  html_url: string;
-  homepage: string;
-  created_at: string;
-  description: string;
-  language: string;
-  languages: string[];
-  setRepoName: (name: string) => void;
-}
+
 
 const Card = ({
   name,
@@ -23,7 +15,7 @@ const Card = ({
   setRepoName,
   language,
   homepage,
-}: IGitProjects) => {
+}: IRepository) => {
   return (
     <>
       {/* bg-[#17141d]  */}

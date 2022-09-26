@@ -13,8 +13,8 @@ import React, { useEffect, useState } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 // import Layout, { WEBSITE_HOST_URL } from '../../components/Layout';
-import { PostType } from '../../types/post';
-import { MetaProps } from '../../types/layout';
+import { IPostType } from '../../types/post.types';
+import { IMetaProps } from '../../types/layout.types';
 
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 import Layout from '../../components/Layout';
@@ -39,7 +39,7 @@ const components = {
 
 type PostPageProps = {
   source: MDXRemoteSerializeResult;
-  frontMatter: PostType;
+  frontMatter: IPostType;
 };
 
 const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
@@ -50,7 +50,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
 
   useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
 
-  const customMeta: MetaProps = {
+  const customMeta: IMetaProps = {
     title: `${frontMatter.title} - Hunter Chang`,
     description: frontMatter.description,
     // image: `https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.naqzq6xZiJ86Wb-8ctbLhgHaEK%26pid%3DApi&f=1`,
