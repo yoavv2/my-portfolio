@@ -76,7 +76,7 @@ const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
           <motion.article
             variants={item}
             key={post?.slug}
-            className='mt-12   border-b-2 sm:border-none'
+            className='mt-12 border-b-2 sm:border-none'
           >
             <p className='mb-1 text-sm text-gray-500 dark:text-gray-400'>
               {format(parseISO(post?.date), 'MMMM dd, yyyy')}
@@ -84,10 +84,10 @@ const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
 
             <Link as={`/posts/${post?.slug}`} href={`/posts/[slug]`}>
               <a
-                className='  text-gray-900 
-            hover:cursor-pointer dark:text-white '
+                className='text-gray-900 
+            hover:cursor-pointer dark:text-white'
               >
-                <h1 className='font-mdm  mb-2 text-xl'>{post.title}</h1>
+                <h1 className='font-mdm mb-2 text-xl'>{post.title}</h1>
 
                 <p className=' font-mdm mb-3 leading-tight'>
                   {post?.description}
