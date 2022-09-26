@@ -1,23 +1,19 @@
-import { format, parseISO } from 'date-fns';
+import React from 'react';
 import fs from 'fs';
-import matter from 'gray-matter';
-import mdxPrism from 'mdx-prism';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import path from 'path';
+import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
-import path from 'path';
-import React, { useEffect, useState } from 'react';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import matter from 'gray-matter';
+import mdxPrism from 'mdx-prism';
 import rehypeSlug from 'rehype-slug';
-// import Layout, { WEBSITE_HOST_URL } from '../../components/Layout';
-import { IPostType } from '../../types/post.types';
-import { IMetaProps } from '../../types/layout.types';
-
+import { format, parseISO } from 'date-fns';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
-import Layout from '../../components/Layout';
+import { IPostType } from '../../types/post.types';
 import DropDown from '../../components/DropDown';
 
 import {
@@ -43,23 +39,20 @@ type PostPageProps = {
 };
 
 const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
-  const [isComplete, setIsComplete] = useState<boolean>(false);
+  const [isComplete, setIsComplete] = React.useState<boolean>(false);
+
   const { scrollYProgress } = useViewportScroll();
+
   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
 
-  useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
+  React.useEffect(
+    () => yRange.onChange((v) => setIsComplete(v >= 1)),
+    [yRange]
+  );
 
-  const customMeta: IMetaProps = {
-    title: `${frontMatter.title} - Hunter Chang`,
-    description: frontMatter.description,
-    // image: `https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.naqzq6xZiJ86Wb-8ctbLhgHaEK%26pid%3DApi&f=1`,
-    date: frontMatter.date,
-    type: 'article',
-  };
   return (
     <>
-      {/* <Layout padding='px-4'> */}
       <h2 className='font-mdm mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
         <Link href='/blog'>
           <a className='hover:underline'>Back to Blog</a>
@@ -107,7 +100,6 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
           <MDXRemote {...source} components={components} />
         </div>
       </article>
-      {/* </Layout> */}
     </>
   );
 };
