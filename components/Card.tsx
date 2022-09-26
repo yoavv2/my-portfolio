@@ -1,21 +1,29 @@
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
-
 import Rive from 'rive-react';
+import { getColor } from '../utils/color.util';
+
+interface IGitProjects {
+  name: string;
+  html_url: string;
+  homepage: string;
+  created_at: string;
+  description: string;
+  language: string;
+  languages: string[];
+  setRepoName: (name: string) => void;
+}
+
 const Card = ({
   name,
   html_url,
   description,
-  language,
   languages,
   created_at,
   setRepoName,
+  language,
   homepage,
-}: any) => {
-  const getColor = (): string => {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
-  };
-
+}: IGitProjects) => {
   return (
     <>
       {/* bg-[#17141d]  */}

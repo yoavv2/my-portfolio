@@ -2,11 +2,12 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { useRive } from 'rive-react';
 import { motion } from 'framer-motion';
+import { getColor } from '../utils/color.util';
 
-const url = 'https://site-yoavv2.vercel.app/';
+const url = 'https://yoavhevroni.me/';
 const title = 'Yoav Hevroni';
 const description = 'Yoav Hevroni Portfolio';
-const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
+const image = 'https://yoavhevroni.me/static/images/yoav-profile.jpg';
 
 const Home = (): JSX.Element => {
   const container = {
@@ -36,9 +37,7 @@ const Home = (): JSX.Element => {
       },
     },
   };
-  const getColor = (): string => {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
-  };
+
   const STATE_MACHINE_NAME = 'Animation1';
   const { rive, RiveComponent } = useRive({
     src: 'rive/marty.riv',
@@ -46,7 +45,6 @@ const Home = (): JSX.Element => {
     stateMachines: STATE_MACHINE_NAME,
     autoplay: true,
   });
-  // useStateMachineInput(rive, STATE_MACHINE_NAME);
 
   const clickOnMarty = (): void => {
     rive.play('Animation2');

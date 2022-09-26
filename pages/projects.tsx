@@ -73,7 +73,7 @@ const Projects = () => {
     );
 
   if (Array.isArray(data)) {
-    data?.sort((a: any, b: any) => a.created_at - b.created_at);
+    data?.sort((a: any, b: any) => (a.created_at - b.created_at ? 1 : -1));
   }
 
   return (
