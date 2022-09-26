@@ -47,18 +47,18 @@ const Card = ({
               </a>
             </Link>
           )}
-        </header>
-        <Link href={html_url}>
-          <a
-            target='_blank'
-            className='cardTag ml-4 flex w-1/2 cursor-pointer items-center justify-center bg-gradient-to-r
+          <Link href={html_url}>
+            <a
+              target='_blank'
+              className='cardTag ml-4 flex w-1/2 cursor-pointer items-center justify-center bg-gradient-to-r
              bg-clip-text fill-transparent font-mono 
              text-sm hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline'
-          >
-            {' '}
-            VIEW CODE
-          </a>
-        </Link>
+            >
+              {' '}
+              VIEW CODE
+            </a>
+          </Link>
+        </header>
 
         <div className='relative flex h-20 items-center '>
           <span className=' relative box-border flex flex-col items-center justify-center'>
