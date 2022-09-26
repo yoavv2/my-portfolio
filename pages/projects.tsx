@@ -75,7 +75,7 @@ const Projects = () => {
   if (Array.isArray(data)) {
     data?.sort(
       (a: IProject, b: IProject) =>
-        new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
   }
 
