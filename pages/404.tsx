@@ -4,7 +4,9 @@ import Rive, { useRive } from '@rive-app/react-canvas';
 const NotFoundPage = () => {
   return (
     <>
-      <h1>OOPS! its 404 Page!!</h1>
+      <h1 className='font-mono font-extrabold lg:text-5xl'>
+        OOPS! its 404 Page😱
+      </h1>
       <div className='flex flex-col justify-center items-center h-full '>
         <Rive
           src='/rive/freefall.riv'
