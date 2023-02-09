@@ -1,4 +1,3 @@
-import ThemeSwitch from './ThemeSwitch';
 import { IMetaProps } from '../types/layout.types';
 import Navigation2 from './Navigation2';
 import { motion } from 'framer-motion';
