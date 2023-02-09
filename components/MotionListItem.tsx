@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 const MotionListItem = ({ className, children }) => {
   return (
-    <motion.li      className={className}
+    <motion.li
+      className={className}
       whileHover={{
         scale: 0.95,
         y: -10,

@@ -1,11 +1,11 @@
 import React from 'react';
 import useSWR from 'swr';
 import Link from 'next/link';
-import Rive from 'rive-react';
 import { NextSeo } from 'next-seo';
 import Card from '../components/Card';
 import ReactMarkdown from 'react-markdown';
 import { IProject } from '../types/project.types';
+import Rive from '@rive-app/react-canvas';
 
 const url = 'https://site-yoavv2.vercel.app/';
 const title = "Yoav's Portfolio";
@@ -115,20 +115,20 @@ const Projects = () => {
             </li>
           ))}
       </ul>
-     { data.length > 0 ?(
-       <div className=' flex justify-center'>
-        {!isSmall && !!repoName.length && 
+      {data.length > 0 ? (
+        <div className=' flex justify-center'>
+          {!isSmall && !!repoName.length && (
             <article className='shadow-3xl my-10 flex min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
               {/* find the repository readme by the name */}
               <ReactMarkdown>
                 {data?.find((repo: any) => repo.name == repoName)?.readme}
               </ReactMarkdown>
             </article>
-        }
-         </div>
-        ) : (
-          showSomethingWentWrong()
-        )}
+          )}
+        </div>
+      ) : (
+        showSomethingWentWrong()
+      )}
     </>
   );
 };

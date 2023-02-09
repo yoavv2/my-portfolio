@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import Rive from 'rive-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import ThemeSwitch from './ThemeSwitch';
 import MotionListItem from './MotionListItem';
 import { Home, Projects, Github, LinkedIn, Mail } from './Icons';
+import Rive from '@rive-app/react-canvas';
 
 function Navigation2() {
   const router = useRouter();
@@ -44,9 +44,8 @@ function Navigation2() {
             className='relative flex flex-col items-center justify-start text-center'
             aria-label='blog'
           >
-            {/* mt-1 text-[.5em] */}
-            <Rive src='/rive/blog2.riv' className='mb-5 w-24' />
-            <span className=' absolute top-[90px] text-[.5em]'>Blog</span>
+            <Rive src='/rive/blog2.riv' className='mb-5 h-20 w-24' />
+            <span className='absolute top-14 text-[.5em] z-10'>Blog</span>
           </a>
         </Link>
         {pathname === '/blog' && (
