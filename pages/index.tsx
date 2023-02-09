@@ -71,7 +71,7 @@ const Home = (): JSX.Element => {
       {/* top-52 */}
       <RiveComponent
         onClick={() => clickOnMarty()}
-        className='3xl:left-36 absolute top-28 right-0 h-32 w-28 cursor-pointer sm:h-60 sm:w-60 lg:top-14 lg:h-96 lg:w-96'
+        className='absolute top-28 right-0 h-32 w-28 cursor-pointer sm:h-60 sm:w-60 lg:top-14 lg:h-96 lg:w-96 3xl:left-36'
       />
       <motion.div variants={container} initial='hidden' animate='visible'>
         <motion.div variants={item}>
@@ -100,7 +100,8 @@ const Home = (): JSX.Element => {
               >
                 'Hello World'
               </span>
-              ); <br />
+              );
+              <br />
               My name is
             </h2>
             <h1 className='mb-6 font-mono text-4xl lg:text-7xl'>
@@ -125,9 +126,9 @@ const Home = (): JSX.Element => {
           className='m-0 grid list-outside list-none grid-cols-1 gap-4 p-0 text-xl lg:text-2xl'
         >
           <li className='flex justify-start gap-2 before:text-xl before:content-["👉"] before:lg:text-3xl'>
-            My Stack is Mostly React with Next, MongoDB with Mongoose, Node with
-            Express and Im Experienced with Typescript, GraphQL with Apollo,
-            firebase.
+            My Stack is Mostly Typescript, React with Next, MongoDB with
+            Mongoose, Node with Express and Im Experienced with GraphQL with
+            Apollo, firebase.
           </li>
           <li className='flex justify-start gap-2 before:text-xl before:content-["👉"] before:lg:text-3xl'>
             B.Sc. in Mathematics and Computer Science.

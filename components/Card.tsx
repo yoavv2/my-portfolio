@@ -4,6 +4,7 @@ import { format, parseISO } from 'date-fns';
 import { IRepository } from '../types/project.types';
 import { getColor } from '../utils/color.util';
 
+const RIVE_AVATAR = '/rive/avatar1.riv';
 const Card = ({
   name,
   html_url,
@@ -19,8 +20,8 @@ const Card = ({
       {/* bg-[#17141d] */}
 
       <article
-        className='min-w-32 lex-col shadow-3xl hover:divide-x-84 relative clear-both flex
-        h-[450px] w-96 cursor-pointer flex-col rounded-3xl bg-yellow-100 p-6 transition-transform hover:-translate-y-5
+        className='min-w-32 lex-col hover:divide-x-84 relative clear-both flex h-[450px]
+        w-96 cursor-pointer flex-col rounded-3xl bg-yellow-100 p-6 shadow-3xl transition-transform hover:-translate-y-5
         focus-within:hover:-translate-y-10 focus-within:hover:-translate-x-3 dark:bg-slate-800 dark:shadow-gray-700 '
         onClick={() => setRepoName(name)}
         // whileTap={{ rotateY: 180, scale: 0.75 }}
@@ -29,7 +30,7 @@ const Card = ({
           <p className='text-sm text-[#7a7abc]'>
             {format(parseISO(created_at), 'MMMM dd, yyyy')}
           </p>
-          <h2 className='font-mdm my-1 ml-auto bg-gradient-to-r bg-clip-text fill-transparent text-xl hover:from-orange-400 hover:to-red-700 hover:text-transparent'>
+          <h2 className='my-1 ml-auto bg-gradient-to-r bg-clip-text fill-transparent font-mdm text-xl hover:from-orange-400 hover:to-red-700 hover:text-transparent'>
             {name.split('-').join(' ')}
           </h2>
           <p className='text-md bg-gradient-to-r bg-clip-text fill-transparent font-mono hover:from-orange-400 hover:to-red-700 hover:text-transparent'>
@@ -65,7 +66,7 @@ const Card = ({
                 src='./images/avatar.png'
                 /> */}
             <Rive
-              src='/rive/avatar1.riv'
+              src={RIVE_AVATAR}
               className='filter-shadow-lg absolute bottom-4 block h-10 w-10 overflow-hidden rounded-full bg-white'
             />
 
@@ -77,7 +78,7 @@ const Card = ({
             </svg>
           </span>
 
-          <div className=' font-mdm ml-3 mb-3 bg-gradient-to-r bg-clip-text fill-transparent hover:from-orange-400 hover:to-red-700 hover:text-transparent '>
+          <div className=' ml-3 mb-3 bg-gradient-to-r bg-clip-text fill-transparent font-mdm hover:from-orange-400 hover:to-red-700 hover:text-transparent '>
             <div className=' font-extrabold text-[#7a7a8c]'>Author</div>
             Yoav Hevroni
           </div>
