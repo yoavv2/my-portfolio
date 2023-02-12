@@ -6,7 +6,7 @@ import MotionListItem from './MotionListItem';
 import { Home, Projects, Github, LinkedIn, Mail } from './Icons';
 import Rive from '@rive-app/react-canvas';
 
-function Navigation2() {
+function Navigation() {
   const router = useRouter();
   const { pathname } = router;
 
@@ -116,4 +116,4 @@ function Navigation2() {
   );
 }
 
-export default Navigation2;
+export default Navigation;

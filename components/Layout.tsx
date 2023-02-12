@@ -1,5 +1,5 @@
 import { IMetaProps } from '../types/layout.types';
-import Navigation2 from './Navigation2';
+import Navigation from './Navigation';
 import { motion } from 'framer-motion';
 
 type LayoutProps = {
@@ -38,7 +38,7 @@ const Layout = ({
            rounded-2xl bg-gray-100 py-1 pl-44 text-center dark:bg-gray-900 sm:max-w-lg
             sm:overflow-x-hidden sm:pl-0 '
         >
-          <Navigation2 />
+          <Navigation />
         </motion.nav>
       </footer>
     </>
