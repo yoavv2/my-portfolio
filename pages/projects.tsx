@@ -43,8 +43,6 @@ const Projects = () => {
   const [isSmall, setIsSmall] = React.useState<boolean>(false);
   const [repoName, setRepoName] = React.useState<string>('');
 
-  let memoProjects = [];
-
   React.useLayoutEffect(() => {
     window.addEventListener('resize', () => {
       setIsSmall(window.innerWidth < 640 ? true : false);
@@ -75,13 +73,9 @@ const Projects = () => {
     );
 
   if (Array.isArray(data)) {
-    memoProjects = React.useMemo(
-      () =>
-        data?.sort(
-          (a: IProject, b: IProject) =>
-            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        ),
-      [data]
+    data?.sort(
+      (a: IProject, b: IProject) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
   }
 
@@ -101,12 +95,12 @@ const Projects = () => {
       />
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
-      {!!memoProjects.length && (
+      {!!data.length && (
         <ul
           className='mx-auto flex flex-col items-center justify-center
                     overflow-x-scroll rounded-xl sm:flex-row sm:justify-start sm:p-12'
         >
-          {memoProjects?.map((project: IProject) => (
+          {data?.map((project: IProject) => (
             <li key={project.name}>
               <Card
                 name={project.name}
