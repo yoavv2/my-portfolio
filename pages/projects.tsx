@@ -43,6 +43,8 @@ const Projects = () => {
   const [isSmall, setIsSmall] = React.useState<boolean>(false);
   const [repoName, setRepoName] = React.useState<string>('');
 
+  let memoProjects = [];
+
   React.useLayoutEffect(() => {
     window.addEventListener('resize', () => {
       setIsSmall(window.innerWidth < 640 ? true : false);
@@ -73,9 +75,13 @@ const Projects = () => {
     );
 
   if (Array.isArray(data)) {
-    data?.sort(
-      (a: IProject, b: IProject) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    memoProjects = React.useMemo(
+      () =>
+        data?.sort(
+          (a: IProject, b: IProject) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        ),
+      [data]
     );
   }
 
@@ -95,12 +101,12 @@ const Projects = () => {
       />
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
-      <ul
-        className='mx-auto flex flex-col items-center justify-center
+      {!!memoProjects.length && (
+        <ul
+          className='mx-auto flex flex-col items-center justify-center
                     overflow-x-scroll rounded-xl sm:flex-row sm:justify-start sm:p-12'
-      >
-        {!!data.length &&
-          data?.map((project: IProject) => (
+        >
+          {memoProjects?.map((project: IProject) => (
             <li key={project.name}>
               <Card
                 name={project.name}
@@ -114,7 +120,8 @@ const Projects = () => {
               />
             </li>
           ))}
-      </ul>
+        </ul>
+      )}
       {data.length > 0 ? (
         <div className=' flex justify-center'>
           {!isSmall && !!repoName.length && (
