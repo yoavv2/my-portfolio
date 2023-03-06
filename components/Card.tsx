@@ -42,6 +42,8 @@ const Card = ({
                 target='_blank'
                 className='cardTag ml-4 flex w-1/2 items-center justify-center bg-gradient-to-r bg-clip-text
                 fill-transparent font-mono text-sm hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline '
+                data-splitbee-event='View project'
+                data-splitbee-event-destination={name.split('-').join(' ')}
               >
                 VIEW PROJECT
               </a>
@@ -52,8 +54,9 @@ const Card = ({
               target='_blank'
               className='cardTag ml-4 flex w-1/2 cursor-pointer items-center justify-center bg-gradient-to-r
               bg-clip-text fill-transparent font-mono text-sm hover:from-orange-400 hover:to-red-700 hover:text-transparent hover:underline'
+              data-splitbee-event='View code'
+              data-splitbee-event-destination={name.split('-').join(' ')}
             >
-              {' '}
               VIEW CODE
             </a>
           </Link>
