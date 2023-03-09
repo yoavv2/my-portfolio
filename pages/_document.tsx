@@ -3,13 +3,6 @@ import React from 'react';
 // bg-yellow-200 text-gray-900 dark:bg-purple-900 dark:text-white
 class MyDocument extends Document {
   render(): JSX.Element {
-    function handleState() {
-      window.splitbee.track('View project');
-    }
-    React.useEffect(() => {
-      window.addEventListener('load', handleState);
-      return window.removeEventListener('load', handleState);
-    });
     return (
       <Html lang='en'>
         <Head>
