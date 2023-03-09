@@ -1,3 +1,6 @@
+type RemoveUpdateAtField<T> = {
+  [K in keyof T as Exclude<K, 'updated_at'>]: T[K];
+};
 export interface IProject {
   name: string;
   html_url: string;
@@ -10,10 +13,6 @@ export interface IProject {
   stars?: string;
   readme?: any;
 }
-
-type RemoveUpdateAtField<T> = {
-  [K in keyof T as Exclude<K, 'updated_at'>]: T[K];
-};
 
 export interface IRepository extends RemoveUpdateAtField<IProject> {
   setRepoName: (name: string) => void;
