@@ -1,11 +1,12 @@
-type RemoveUpdateAtField<T> = {
-  [K in keyof T as Exclude<K, 'updated_at'>]: T[K];
+type RemovePushedAtField<T> = {
+  [K in keyof T as Exclude<K, 'pushed_at'>]: T[K];
 };
+
 export interface IProject {
   name: string;
   html_url: string;
   created_at: string;
-  updated_at: string;
+  pushed_at: string;
   language: string;
   languages: string[];
   description?: string;
@@ -14,6 +15,6 @@ export interface IProject {
   readme?: any;
 }
 
-export interface IRepository extends RemoveUpdateAtField<IProject> {
+export interface IRepository extends RemovePushedAtField<IProject> {
   setRepoName: (name: string) => void;
 }
