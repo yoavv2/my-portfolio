@@ -45,7 +45,7 @@ const Projects = () => {
 
   React.useLayoutEffect(() => {
     window.addEventListener('resize', () => {
-      setIsSmall(window.innerWidth < 640 ? true : false);
+      setIsSmall(window.innerWidth < 640);
     });
   }, [setIsSmall]);
 
@@ -75,7 +75,7 @@ const Projects = () => {
   if (Array.isArray(data)) {
     data?.sort(
       (a: IProject, b: IProject) =>
-        new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
   }
 
