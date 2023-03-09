@@ -1,53 +1,57 @@
-import { Response } from 'express';
-export default async (req: any, res: Response) => {
-  const reposURL = 'https://api.github.com/users/yoavv2/repos';
+import { Request, Response } from 'express';
 
-  const readmeURL = (repoName: string, repoBranch: string): string =>
-    `https://raw.githubusercontent.com/yoavv2/${repoName}/${repoBranch}/README.md`;
+interface Repo {
+  name: string;
+  default_branch: string;
+}
 
-  const languagesURL = (repoName: string): string =>
-    `https://api.github.com/repos/yoavv2/${repoName}/languages`;
+interface RepoWithDetails extends Repo {
+  readme: string;
+  languages: Record<string, number>;
+}
 
-  try {
-    const response = await fetch(reposURL, {
+async function getRepos(): Promise<Repo[]> {
+  const url = 'https://api.github.com/users/yoavv2/repos';
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `token ${process.env.GITHUB_TOKEN}`,
+    },
+  });
+  const repos = await response.json();
+  return repos;
+}
+
+async function getRepoDetails(repo: Repo): Promise<RepoWithDetails> {
+  const readmeUrl = `https://raw.githubusercontent.com/yoavv2/${repo.name}/${repo.default_branch}/README.md`;
+  const languagesUrl = `https://api.github.com/repos/yoavv2/${repo.name}/languages`;
+  const [readmeResponse, languagesResponse] = await Promise.all([
+    fetch(readmeUrl, {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    });
+    }),
+    fetch(languagesUrl, {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }),
+  ]);
+  const readme = await readmeResponse.text();
+  const languagesJson = await languagesResponse.json();
+  return {
+    ...repo,
+    readme,
+    languages: languagesJson,
+  };
+}
 
-    const jsonData = await response.json();
-
-    const promises = jsonData?.map(async (repo: any) => {
-      const readmeResponse = await fetch(
-        readmeURL(repo.name, repo.default_branch),
-        {
-          headers: {
-            Authorization: `token ${process.env.GITHUB_TOKEN}`,
-          },
-        }
-      );
-
-      const languagesResponse = await fetch(`${languagesURL(repo.name)}`, {
-        headers: {
-          Authorization: `token ${process.env.GITHUB_TOKEN}`,
-        },
-      });
-
-      const languagesJson = await languagesResponse.json();
-
-      const readme = await readmeResponse.text();
-
-      repo.readme = readme;
-      repo.languages = languagesJson;
-
-      return repo;
-    });
+export default async function handler(req: Request, res: Response) {
+  try {
+    const repos = await getRepos();
+    const promises = repos.map(getRepoDetails);
     const allRepos = await Promise.all(promises);
-
- 
-
     res.status(200).json(allRepos);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-};
+}

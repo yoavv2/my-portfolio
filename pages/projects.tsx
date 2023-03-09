@@ -12,7 +12,7 @@ const title = "Yoav's Portfolio";
 const description = 'Projects and Experiences';
 // const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
 
-export async function fetcher<JSON = any>(
+export async function fetcher<JSON = Record<string, unknown>>(
   input: RequestInfo,
   init?: RequestInit
 ): Promise<JSON> {
