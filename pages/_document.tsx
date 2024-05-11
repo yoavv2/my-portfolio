@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 // bg-yellow-200 text-gray-900 dark:bg-purple-900 dark:text-white
@@ -18,7 +17,6 @@ class MyDocument extends Document {
         <body className='bg-yellow-200 text-gray-900 dark:bg-purple-900 dark:text-white'>
           <Main />
           <NextScript />
-          <SpeedInsights />
         </body>
       </Html>
     );
