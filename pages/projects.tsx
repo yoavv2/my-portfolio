@@ -119,7 +119,7 @@ const Projects = () => {
       {data.length > 0 ? (
         <div className=' flex justify-center'>
           {!isSmall && !!repoName.length && (
-            <article className='shadow-3xl my-10 flex min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-slate-700 dark:shadow-gray-700'>
+            <article className='shadow-3xl my-10 flex min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-[#17141d] dark:shadow-[#17141d]'>
               {/* find the repository readme by the name */}
               <ReactMarkdown>
                 {data?.find((repo: any) => repo.name == repoName)?.readme}

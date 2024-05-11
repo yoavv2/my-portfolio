@@ -10,7 +10,7 @@ type IndexProps = {
   posts: IPostType[];
 };
 
-const url = 'https://yoavhevroni.me/blog';
+const url = 'https://yoavhevroni.click/blog';
 const title = "Yoav's Blog";
 const description = 'Yoav Hevroni Blog';
 // const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
@@ -61,13 +61,13 @@ const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
         variants={container}
         initial='hidden'
         animate='visible'
-        className=' container mx-auto'
+        className='container mx-auto '
       >
-        <h1 className='  mb-12 text-center font-mono text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
+        <h1 className='mb-12 font-mono text-5xl font-bold leading-tight tracking-tighter text-center  md:text-left md:text-7xl md:leading-none lg:text-8xl'>
           Hi,
         </h1>
-        <h2 className=' font-mono'> Welcome to my blog</h2>
-        <p className=' font-mono'>
+        <h2 className='font-mono '> Welcome to my blog</h2>
+        <p className='font-mono '>
           here you can find things that i want to keep for myself
         </p>
       </motion.div>
@@ -84,12 +84,11 @@ const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
 
             <Link as={`/posts/${post?.slug}`} href={`/posts/[slug]`}>
               <a
-                className='text-gray-900 
-            hover:cursor-pointer dark:text-white'
+                className='text-gray-900 hover:cursor-pointer dark:text-white'
               >
-                <h1 className='font-mdm mb-2 text-xl'>{post.title}</h1>
+                <h1 className='mb-2 text-xl font-mdm'>{post.title}</h1>
 
-                <p className=' font-mdm mb-3 leading-tight'>
+                <p className='mb-3 leading-tight  font-mdm'>
                   {post?.description}
                 </p>
 
@@ -99,7 +98,7 @@ const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
                   width={400}
                   height={400}
                 />
-                <h2 className='mb-20 mt-8 font-mono text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
+                <h2 className='mt-8 mb-20 font-mono text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
                   <span className='hoverAnimation hover:underline'>
                     Read more
                   </span>
