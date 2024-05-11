@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { motion } from 'framer-motion';
-import { getColor } from '../utils/color.util';
 import { useRive } from '@rive-app/react-canvas';
+import { getColor } from '../utils/color.util';
 
 const url = 'https://yoavhevroni.click/';
 const title = 'Yoav Hevroni';

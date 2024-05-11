@@ -1,10 +1,10 @@
 import Link from 'next/link';
+import Rive from '@rive-app/react-canvas';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import ThemeSwitch from './ThemeSwitch';
 import MotionListItem from './MotionListItem';
 import { Home, Projects, Github, LinkedIn, Mail } from './Icons';
-import Rive from '@rive-app/react-canvas';
 
 function Navigation() {
   const router = useRouter();
@@ -32,7 +32,7 @@ function Navigation() {
 
         {pathname === '/' && (
           <motion.div
-            className='absolute top-full right-0 left-0 h-1 rounded-full bg-gray-600 underline dark:bg-gray-100'
+            className='absolute left-0 right-0 top-full h-1 rounded-full bg-gray-600 underline dark:bg-gray-100'
             layoutId='underline'
           />
         )}
@@ -50,7 +50,7 @@ function Navigation() {
         </Link>
         {pathname === '/blog' && (
           <motion.div
-            className='absolute top-full right-0 left-0 h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
+            className='absolute left-0 right-0 top-full h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
             layoutId='underline'
           />
         )}
@@ -68,7 +68,7 @@ function Navigation() {
         </Link>
         {pathname === '/projects' && (
           <motion.div
-            className='absolute top-full right-0 left-0 h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
+            className='absolute left-0 right-0 top-full h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
             layoutId='underline'
           />
         )}

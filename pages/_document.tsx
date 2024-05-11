@@ -14,7 +14,7 @@ class MyDocument extends Document {
           />
           <script async src='https://cdn.splitbee.io/sb.js'></script>
         </Head>
-        <body className='bg-yellow-200 text-gray-900 dark:bg-purple-900 dark:text-white'>
+        <body className='text-gray-900 bg-yellow-200 dark:bg-purple-900 dark:text-white'>
           <Main />
           <NextScript />
         </body>
