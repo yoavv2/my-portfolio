@@ -127,6 +127,7 @@ const CardBack = styled.div`
     /* position: relative; */
     z-index: 10; /* Make sure the back is on top when flipped */
     min-width: 100%;
+    max-width: 100%;
   }
 
   @media (min-width: 640px) {
