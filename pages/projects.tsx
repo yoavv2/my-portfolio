@@ -88,20 +88,19 @@ const Projects = () => {
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
       {!!data.length && (
-        <ul className='flex flex-col items-center justify-center mx-auto overflow-x-scroll rounded-xl sm:flex-row sm:justify-start sm:p-12'>
+        <ul className='flex flex-col items-center justify-center mx-auto sm:flex-row sm:justify-start sm:p-12'>
           {data?.map((project: IProject) => (
-            <li key={project.name}>
-              <Card
-                name={project.name}
-                html_url={project.html_url}
-                description={project.description}
-                languages={project.languages}
-                language={project.language}
-                created_at={project.created_at}
-                setRepoName={setRepoName}
-                homepage={project.homepage}
-              />
-            </li>
+            <Card
+              key={project.name}
+              name={project.name}
+              html_url={project.html_url}
+              description={project.description}
+              languages={project.languages}
+              language={project.language}
+              created_at={project.created_at}
+              setRepoName={setRepoName}
+              homepage={project.homepage}
+            />
           ))}
         </ul>
       )}
