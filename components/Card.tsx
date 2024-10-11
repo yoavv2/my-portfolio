@@ -17,16 +17,51 @@ interface CardProps {
 
 const RIVE_AVATAR = '/rive/avatar1.riv';
 
+// const CardContainer = styled.article<{ isFlipped: boolean }>`
+// min-width: 100%;
+// padding: 1rem; /* Adjust padding for smaller screens */
+// border-radius: 16px;
+// display: flex;
+// flex-direction: column;
+// justify-content: space-between;
+// margin: 0 auto 20px; /* Center and adjust margins */
+// flex: 1;
+// transition: 0.3s;
+
+// @media (min-width: 640px) {
+//   min-width: 400px;
+//   &:not(:first-child) {
+//     margin-left: -130px;
+//   }
+
+//   &:hover {
+//     transform: translateY(-1rem);
+//     z-index: 5;
+//   }
+//   &:hover ~ article {
+//     transform: translateX(130px);
+//   }
+// }
+// `;
 const CardContainer = styled.article<{ isFlipped: boolean }>`
-  min-width: 100%;
-  padding: 1rem; /* Adjust padding for smaller screens */
+  max-width: 800px;
+  min-width: 300px;
+  padding: 1.5rem;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 auto 20px; /* Center and adjust margins */
-  flex: 1;
+  margin: 0 0 20px 0;
+  position: relative;
   transition: 0.3s;
+  min-height: ${({ isFlipped }) => (isFlipped ? 'auto' : '500px')};
+  flex: 1;
+
+  /* In mobile view, adjust z-index when flipped */
+  @media (max-width: 640px) {
+    z-index: ${({ isFlipped }) => (isFlipped ? 10 : 0)};
+    min-height: ${({ isFlipped }) => (isFlipped ? '700px' : '500px')};
+  }
 
   @media (min-width: 640px) {
     min-width: 400px;
@@ -38,6 +73,7 @@ const CardContainer = styled.article<{ isFlipped: boolean }>`
       transform: translateY(-1rem);
       z-index: 5;
     }
+
     &:hover ~ article {
       transform: translateX(130px);
     }
@@ -46,11 +82,11 @@ const CardContainer = styled.article<{ isFlipped: boolean }>`
 
 const CardInner = styled.div<{ isFlipped: boolean }>`
   position: relative;
-
-  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, height 0.8s ease;
   transform-style: preserve-3d;
   transform: ${({ isFlipped }) =>
     isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'};
+  height: ${({ isFlipped }) => (isFlipped ? 'auto' : '100%')};
 `;
 
 const CardFront = styled.div`
@@ -62,9 +98,10 @@ const CardFront = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   @media (max-width: 640px) {
     margin-left: 0; /* No negative margin on mobile */
-    transform: none; /* Remove hover effect on mobile */
+    transform: none; // Remove hover effect on mobile
   }
   @media (min-width: 640px) {
     min-height: 500px;
@@ -76,15 +113,25 @@ const CardBack = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 400px;
+  min-width: 300px;
   padding: 1.5rem;
   border-radius: 16px;
   background: #17141d;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: 1rem 0 3rem #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   transform: rotateY(180deg);
+
+  @media (max-width: 640px) {
+    /* position: relative; */
+    z-index: 10; /* Make sure the back is on top when flipped */
+    min-width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    min-width: 400px;
+  }
 `;
 
 const CardHeader = styled.header`
@@ -243,6 +290,7 @@ const CardComponent: React.FC<CardProps> = ({
         <CardBack>
           <CardHeader>
             <h2>{name.split('-').join(' ')} README</h2>
+
             <ReactMarkdown>{readme}</ReactMarkdown>
           </CardHeader>
         </CardBack>
