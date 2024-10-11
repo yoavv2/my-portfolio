@@ -12,14 +12,14 @@ function Navigation() {
 
   return (
     <ul className='relative flex space-x-2 ' aria-label='navigation'>
-      <MotionListItem className='flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
+      <MotionListItem className='flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <span className='p-5'>
           <ThemeSwitch />
         </span>
       </MotionListItem>
-      <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
+      <hr className='w-1 bg-gray-400 rounded-lg h-11 dark:bg-gray-200' />
 
-      <MotionListItem className='relative flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
+      <MotionListItem className='relative flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <Link href='/'>
           <a
             className='relative flex flex-col items-center justify-center p-5 text-center'
@@ -32,31 +32,31 @@ function Navigation() {
 
         {pathname === '/' && (
           <motion.div
-            className='absolute left-0 right-0 top-full h-1 rounded-full bg-gray-600 underline dark:bg-gray-100'
+            className='absolute left-0 right-0 h-1 underline bg-gray-600 rounded-full top-full dark:bg-gray-100'
             layoutId='underline'
           />
         )}
       </MotionListItem>
 
-      <MotionListItem className='relative flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
+      <MotionListItem className='relative flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <Link href='/blog'>
           <a
             className='relative flex flex-col items-center justify-start text-center'
             aria-label='blog'
           >
-            <Rive src='/rive/blog2.riv' className='mb-5 h-20 w-24' />
+            <Rive src='/rive/blog2.riv' className='w-24 h-20 mb-5' />
             <span className='absolute top-14 z-10 text-[.5em]'>Blog</span>
           </a>
         </Link>
         {pathname === '/blog' && (
           <motion.div
-            className='absolute left-0 right-0 top-full h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
+            className='absolute left-0 right-0 h-1 underline bg-gray-600 rounded-full top-full dark:bg-gray-100 '
             layoutId='underline'
           />
         )}
       </MotionListItem>
 
-      <MotionListItem className='relative flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
+      <MotionListItem className='relative flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <Link href='/projects'>
           <a
             className='relative flex flex-col items-center justify-center p-5 text-center'
@@ -68,15 +68,15 @@ function Navigation() {
         </Link>
         {pathname === '/projects' && (
           <motion.div
-            className='absolute left-0 right-0 top-full h-1 rounded-full bg-gray-600 underline dark:bg-gray-100 '
+            className='absolute left-0 right-0 h-1 underline bg-gray-600 rounded-full top-full dark:bg-gray-100 '
             layoutId='underline'
           />
         )}
       </MotionListItem>
 
-      <hr className='h-11 w-1 rounded-lg bg-gray-400 dark:bg-gray-200' />
+      <hr className='w-1 bg-gray-400 rounded-lg h-11 dark:bg-gray-200' />
 
-      <MotionListItem className='flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
+      <MotionListItem className='flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <Link href='mailto:yoavhevroni1@gmail.com'>
           <a
             className='relative flex flex-col items-center justify-center p-5 text-center'
@@ -88,7 +88,7 @@ function Navigation() {
           </a>
         </Link>
       </MotionListItem>
-      <MotionListItem className='flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
+      <MotionListItem className='flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <Link href='https://github.com/yoavv2'>
           <a
             className='relative flex flex-col items-center justify-center p-5 text-center'
@@ -100,7 +100,7 @@ function Navigation() {
           </a>
         </Link>
       </MotionListItem>
-      <MotionListItem className='flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
+      <MotionListItem className='flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <Link href='https://www.linkedin.com/in/yoavhevroni/'>
           <a
             className='relative flex flex-col items-center justify-center p-5 text-center'
