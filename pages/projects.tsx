@@ -80,7 +80,7 @@ const Projects = () => {
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
       {!!data.length && (
-        <ul className='scrollbar-hide flex flex-col h-auto mx-auto overflow-scroll overflow-y-hidden sm:flex-row sm:justify-start sm:p-12'>
+        <ul className='scrollbar-hide flex flex-col h-screen mx-auto overflow-scroll overflow-y-auto sm:flex-row sm:justify-start sm:p-12'>
           {data?.map((project: IProject) => (
             <Card
               key={project.name}
