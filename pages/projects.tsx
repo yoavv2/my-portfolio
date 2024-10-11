@@ -2,7 +2,6 @@ import React from 'react';
 import useSWR from 'swr';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
-import ReactMarkdown from 'react-markdown';
 import { IProject } from '../types/project.types';
 import Rive from '@rive-app/react-canvas';
 import Card from '../components/Card';
@@ -39,14 +38,7 @@ const showSomethingWentWrong = () => (
 );
 
 const Projects = () => {
-  const [isSmall, setIsSmall] = React.useState<boolean>(false);
   const [repoName, setRepoName] = React.useState<string>('');
-
-  React.useLayoutEffect(() => {
-    window.addEventListener('resize', () => {
-      setIsSmall(window.innerWidth < 640);
-    });
-  }, [setIsSmall]);
 
   const { data, error } = useSWR<IProject[]>('/api/github', fetcher, {
     revalidateOnFocus: false,
@@ -88,7 +80,7 @@ const Projects = () => {
       <h1 className='font-mdm flex items-center justify-center'> Projects </h1>
 
       {!!data.length && (
-        <ul className='flex flex-col items-center justify-center mx-auto sm:flex-row sm:justify-start sm:p-12'>
+        <ul className='scrollbar-hide flex flex-col h-auto mx-auto overflow-scroll overflow-y-hidden sm:flex-row sm:justify-start sm:p-12'>
           {data?.map((project: IProject) => (
             <Card
               key={project.name}
@@ -96,26 +88,13 @@ const Projects = () => {
               html_url={project.html_url}
               description={project.description}
               languages={project.languages}
-              language={project.language}
               created_at={project.created_at}
               setRepoName={setRepoName}
               homepage={project.homepage}
+              readme={project.readme}
             />
           ))}
         </ul>
-      )}
-      {data.length > 0 ? (
-        <div className='flex justify-center '>
-          {!isSmall && !!repoName.length && (
-            <article className='shadow-3xl my-10 flex min-w-full flex-col items-start rounded-lg border border-dashed border-b-slate-500 bg-yellow-100  p-4 dark:border-white dark:bg-[#17141d] dark:shadow-[#17141d]'>
-              <ReactMarkdown>
-                {data?.find((repo: any) => repo.name == repoName)?.readme}
-              </ReactMarkdown>
-            </article>
-          )}
-        </div>
-      ) : (
-        showSomethingWentWrong()
       )}
     </>
   );
