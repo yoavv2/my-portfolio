@@ -17,32 +17,6 @@ interface CardProps {
 
 const RIVE_AVATAR = '/rive/avatar1.riv';
 
-// const CardContainer = styled.article<{ isFlipped: boolean }>`
-// min-width: 100%;
-// padding: 1rem; /* Adjust padding for smaller screens */
-// border-radius: 16px;
-// display: flex;
-// flex-direction: column;
-// justify-content: space-between;
-// margin: 0 auto 20px; /* Center and adjust margins */
-// flex: 1;
-// transition: 0.3s;
-
-// @media (min-width: 640px) {
-//   min-width: 400px;
-//   &:not(:first-child) {
-//     margin-left: -130px;
-//   }
-
-//   &:hover {
-//     transform: translateY(-1rem);
-//     z-index: 5;
-//   }
-//   &:hover ~ article {
-//     transform: translateX(130px);
-//   }
-// }
-// `;
 const CardContainer = styled.article<{ isFlipped: boolean }>`
   max-width: 800px;
   min-width: 300px;
@@ -54,13 +28,52 @@ const CardContainer = styled.article<{ isFlipped: boolean }>`
   margin: 0 0 20px 0;
   position: relative;
   transition: 0.3s;
-  min-height: ${({ isFlipped }) => (isFlipped ? 'auto' : '500px')};
+  height: 500px;
   flex: 1;
+  cursor: pointer;
+  z-index: ${({ isFlipped }) => (isFlipped ? 10 : 1)};
+  // Increase z-index when flipped
+
+  &::after {
+    content: '↺';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+    color: #ff8a00;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+
+  /* Pulse animation on hover */
+  &:hover {
+    box-shadow: 0 0 0 2px #ff8a00;
+    animation: pulse 2s infinite;
+    z-index: 5;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 138, 0, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 138, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 138, 0, 0);
+    }
+  }
 
   /* In mobile view, adjust z-index when flipped */
   @media (max-width: 640px) {
-    z-index: ${({ isFlipped }) => (isFlipped ? 10 : 0)};
-    min-height: ${({ isFlipped }) => (isFlipped ? '700px' : '500px')};
+    z-index: ${({ isFlipped }) => (isFlipped ? 10 : 1)};
+    height: 500px;
   }
 
   @media (min-width: 640px) {
@@ -80,6 +93,68 @@ const CardContainer = styled.article<{ isFlipped: boolean }>`
   }
 `;
 
+const FlipIndicator = styled.div<{ isFlipped: boolean }>`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background: ${({ isFlipped }) => (isFlipped ? '#e52e71' : '#ff8a00')};
+  color: white;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  z-index: 2;
+  min-width: 140px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Fix text orientation when flipped */
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+
+  /* Create two separate elements for front and back text */
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    padding: inherit;
+    white-space: nowrap;
+  }
+
+  &::before {
+    content: 'See README ↺';
+    transform: ${({ isFlipped }) =>
+      isFlipped
+        ? 'translate(-50%, -50%) rotateY(180deg)'
+        : 'translate(-50%, -50%) rotateY(0)'};
+    opacity: ${({ isFlipped }) => (isFlipped ? 0 : 1)};
+  }
+
+  &::after {
+    content: 'Back to Card';
+    transform: ${({ isFlipped }) =>
+      isFlipped
+        ? 'translate(-50%, -50%) rotateY(0)'
+        : 'translate(-50%, -50%) rotateY(180deg)'};
+    opacity: ${({ isFlipped }) => (isFlipped ? 1 : 0)};
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
 const CardInner = styled.div<{ isFlipped: boolean }>`
   position: relative;
   transition: transform 0.8s ease, height 0.8s ease;
@@ -87,12 +162,13 @@ const CardInner = styled.div<{ isFlipped: boolean }>`
   transform: ${({ isFlipped }) =>
     isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'};
   height: ${({ isFlipped }) => (isFlipped ? 'auto' : '100%')};
+  z-index: 1;
 `;
 
 const CardFront = styled.div`
   border-radius: 16px;
-  min-height: 300px; //Reduce height for mobile
-  padding: 1rem; /* Adjust padding for mobile */
+  min-height: 300px;
+  padding: 1rem;
   background: #17141d;
   box-shadow: -1rem 0 3rem #000;
   display: flex;
@@ -100,8 +176,8 @@ const CardFront = styled.div`
   justify-content: space-between;
 
   @media (max-width: 640px) {
-    margin-left: 0; /* No negative margin on mobile */
-    transform: none; // Remove hover effect on mobile
+    margin-left: 0;
+    transform: none;
   }
   @media (min-width: 640px) {
     min-height: 500px;
@@ -113,6 +189,8 @@ const CardBack = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   min-width: 300px;
   padding: 1.5rem;
   border-radius: 16px;
@@ -120,12 +198,34 @@ const CardBack = styled.div`
   box-shadow: 1rem 0 3rem #000;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   transform: rotateY(180deg);
+  overflow: hidden;
+  z-index: 1; // Match CardInner z-index
+
+  .readme-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    padding-top: 2rem; // Add space for the FlipIndicator
+
+    /* Customize scrollbar */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #28242f;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #7a7a8c;
+      border-radius: 4px;
+    }
+  }
 
   @media (max-width: 640px) {
-    /* position: relative; */
-    z-index: 10; /* Make sure the back is on top when flipped */
+    z-index: 10;
     min-width: 100%;
     max-width: 100%;
   }
@@ -142,6 +242,7 @@ const CardHeader = styled.header`
   }
   p {
     font-size: 14px;
+    margin-bottom: 1rem;
   }
   @media (max-width: 640px) {
     h2 {
@@ -149,6 +250,50 @@ const CardHeader = styled.header`
     }
     p {
       font-size: 12px;
+    }
+  }
+`;
+
+const ActionLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+
+  a {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+
+    &.view-project {
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      color: white;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(229, 46, 113, 0.3);
+      }
+    }
+
+    &.view-code {
+      border: 2px solid #7a7a8c;
+      color: #7a7a8c;
+
+      &:hover {
+        border-color: #ff8a00;
+        color: #ff8a00;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    a {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
     }
   }
 `;
@@ -250,26 +395,41 @@ const CardComponent: React.FC<CardProps> = ({
 
   return (
     <CardContainer onClick={handleClick} isFlipped={isFlipped}>
+      <FlipIndicator isFlipped={isFlipped} />
       <CardInner isFlipped={isFlipped}>
         <CardFront>
           <CardHeader>
             <p>{format(parseISO(created_at), 'MMMM dd, yyyy')}</p>
             <h2>{name.split('-').join(' ')}</h2>
             <p>{description}</p>
-            {homepage && (
-              <a href={homepage} target='_blank' rel='noopener noreferrer'>
-                VIEW PROJECT
+            <ActionLinks>
+              {homepage && (
+                <a
+                  href={homepage}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='view-project'
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  View Project
+                </a>
+              )}
+              <a
+                href={html_url}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='view-code'
+                onClick={(e) => e.stopPropagation()}
+              >
+                View Code
               </a>
-            )}
-            <a href={html_url} target='_blank' rel='noopener noreferrer'>
-              VIEW CODE
-            </a>
+            </ActionLinks>
           </CardHeader>
           <CardAuthor>
             <AuthorAvatar href='#'>
               <Rive
                 src={RIVE_AVATAR}
-                className='filter-shadow-lg absolute block w-10 h-10 overflow-hidden bg-white rounded-full left-2.5 bottom-4 '
+                className='filter-shadow-lg absolute left-2.5 bottom-4 block h-10 w-10 overflow-hidden rounded-full bg-white '
               />
             </AuthorAvatar>
             <HalfCircle viewBox='0 0 106 57'>
@@ -291,9 +451,10 @@ const CardComponent: React.FC<CardProps> = ({
         <CardBack>
           <CardHeader>
             <h2>{name.split('-').join(' ')} README</h2>
-
-            <ReactMarkdown>{readme}</ReactMarkdown>
           </CardHeader>
+          <div className='readme-content'>
+            <ReactMarkdown>{readme}</ReactMarkdown>
+          </div>
         </CardBack>
       </CardInner>
     </CardContainer>
