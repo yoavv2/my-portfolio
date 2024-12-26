@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { format, parseISO } from 'date-fns';
 import { IPostType } from '../types/post.types';
 import { getAllPosts } from '../lib/api';
+import PostCard from '../components/PostCard';
 
 type IndexProps = {
   posts: IPostType[];
@@ -13,19 +14,14 @@ type IndexProps = {
 const url = 'https://yoavhevroni.click/blog';
 const title = "Yoav's Blog";
 const description = 'Yoav Hevroni Blog';
-// const image = 'https://site-yoavv2.vercel.app/static/images/yoav-profile.jpg';
 
 const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
   const container = {
-    hidden: { opacity: 1, scale: 0 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      scale: 1,
       transition: {
-        delayChildren: 0.5,
-        staggerChildren: 0.5,
-        staggerDirection: -1,
-        ease: 'easeOut',
+        staggerChildren: 0.2,
       },
     },
   };
@@ -35,9 +31,15 @@ const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
     visible: {
       y: 0,
       opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.48, 0.15, 0.25, 0.96],
+      },
     },
   };
-  posts?.sort((a, b) => {
+
+  // Sort posts by date
+  const sortedPosts = [...posts].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
@@ -51,65 +53,39 @@ const blog: React.FC<IndexProps> = ({ posts }): JSX.Element => {
           url,
           title,
           description,
-          // images: [image],
           site_name: 'Yoav Hevroni Blog',
         }}
       />
 
-      {/* <Layout size='max-w-5xl'> */}
-      <motion.div
-        variants={container}
-        initial='hidden'
-        animate='visible'
-        className='container mx-auto '
-      >
-        <h1 className='mb-12 font-mono text-5xl font-bold leading-tight tracking-tighter text-center  md:text-left md:text-7xl md:leading-none lg:text-8xl'>
-          Hi,
-        </h1>
-        <h2 className='font-mono '> Welcome to my blog</h2>
-        <p className='font-mono '>
-          here you can find things that i want to keep for myself
-        </p>
-      </motion.div>
-      <motion.div variants={container} initial='hidden' animate='visible'>
-        {posts.map((post) => (
-          <motion.article
-            variants={item}
-            key={post?.slug}
-            className='mt-12 border-b-2 sm:border-none'
-          >
-            <p className='mb-1 text-sm text-gray-500 dark:text-gray-400'>
-              {format(parseISO(post?.date), 'MMMM dd, yyyy')}
-            </p>
+      <div className="container mx-auto px-4 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 text-center"
+        >
+          <h1 className="mb-4 font-mono text-4xl font-bold md:text-5xl lg:text-6xl">
+            Welcome to my Blog
+          </h1>
+          <p className="mx-auto max-w-2xl font-mono text-gray-600 dark:text-gray-300">
+            Here I share my thoughts, experiences, and learnings about web development,
+            technology, and everything in between.
+          </p>
+        </motion.div>
 
-            <Link as={`/posts/${post?.slug}`} href={`/posts/[slug]`}>
-              <a
-                className='text-gray-900 hover:cursor-pointer dark:text-white'
-              >
-                <h1 className='mb-2 text-xl font-mdm'>{post.title}</h1>
-
-                <p className='mb-3 leading-tight  font-mdm'>
-                  {post?.description}
-                </p>
-
-                <img
-                  src={`/images/${post?.image}`}
-                  alt={post?.title}
-                  width={400}
-                  height={400}
-                />
-                <h2 className='mt-8 mb-20 font-mono text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter'>
-                  <span className='hoverAnimation hover:underline'>
-                    Read more
-                  </span>
-                  .
-                </h2>
-              </a>
-            </Link>
-          </motion.article>
-        ))}
-      </motion.div>
-      {/* </Layout> */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {sortedPosts.map((post) => (
+            <motion.div key={post.slug} variants={item}>
+              <PostCard post={post} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </>
   );
 };
