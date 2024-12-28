@@ -31,7 +31,7 @@ const CardContainer = styled.article<{ isFlipped: boolean }>`
   height: 500px;
   flex: 1;
   cursor: pointer;
-  z-index: ${({ isFlipped }) => (isFlipped ? 10 : 1)};
+  z-index: ${({ isFlipped }) => (isFlipped ? 2 : 1)};
   // Increase z-index when flipped
 
   &::after {
@@ -72,7 +72,7 @@ const CardContainer = styled.article<{ isFlipped: boolean }>`
 
   /* In mobile view, adjust z-index when flipped */
   @media (max-width: 640px) {
-    z-index: ${({ isFlipped }) => (isFlipped ? 10 : 1)};
+    z-index: ${({ isFlipped }) => (isFlipped ? 2 : 1)};
     height: 500px;
   }
 

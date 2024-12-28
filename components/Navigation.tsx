@@ -11,7 +11,7 @@ function Navigation() {
   const { pathname } = router;
 
   return (
-    <ul className='relative flex space-x-2 ' aria-label='navigation'>
+    <ul className='relative flex space-x-2 z-50' aria-label='navigation'>
       <MotionListItem className='flex items-center justify-center w-12 h-12 text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700'>
         <span className='p-5'>
           <ThemeSwitch />

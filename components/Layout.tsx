@@ -36,7 +36,7 @@ const Layout = ({
           className='fixed bottom-0 left-0 right-0 mx-auto mb-10 flex h-16 w-2/3
            items-center justify-evenly space-x-2 overflow-y-hidden overflow-x-scroll 
            rounded-2xl bg-gray-100 py-1 pl-2 text-center dark:bg-[#17141d] sm:max-w-lg
-            sm:overflow-x-hidden sm:pl-0 '
+            sm:overflow-x-hidden sm:pl-0 z-[100]'
         >
           <Navigation />
         </motion.nav>
